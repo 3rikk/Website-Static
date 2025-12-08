@@ -21,20 +21,40 @@
 				align-items:center;
 				justify-content:flex-start;
 				padding:5rem 2rem;
+				position:relative; /* allow absolute-positioned top-right text */
 				box-sizing:border-box;
 			}
 
 			h1{ font-family:'Playfair Display',serif; font-weight:700; font-size:36pt; margin:0 0 2rem 0; text-transform:none; }
 
-			/* PDF viewer container: approx 900pt wide, centered, faint gray drop shadow */
+			/* PDF viewer container: approx 900pt wide, centered, subtle drop shadow (no visible border) */
 			.pdf-frame{
-				width:900pt;
+				/* 75% of previous size: 900pt -> 675pt, 1200pt -> 900pt */
+				width:675pt;
 				max-width:100%; /* responsive on small screens */
-				height:1200pt; /* visible viewport height for the embedded PDF */
-				box-shadow: 0 8px 24px rgba(128,128,128,0.18); /* faint gray shadow */
+				height:900pt; /* visible viewport height for the embedded PDF */
+				/* remove any explicit background/border so the PDF appears flush */
+				background:transparent;
+				border:0;
 				overflow:hidden;
-				border-radius:4px;
-				background:#fff; /* in case PDF fails to load, provide light bg */
+				border-radius:6px;
+				/* subtle dark drop shadow onto the page background */
+				box-shadow: 0 8px 24px rgba(0,0,0,0.45);
+			}
+
+			/* Top-right small 'Back to Home' text: same style as body but half the size */
+			.top-right{
+				position:absolute;
+				top:1.5rem;
+				right:2rem;
+				font-family:'Libre Baskerville', serif;
+				font-size:15pt; /* half of 30pt body */
+				color:var(--text);
+				text-decoration:none;
+			}
+
+			@media (max-width:600px){
+				.top-right{ display:none; }
 			}
 
 			.pdf-frame iframe{
@@ -49,12 +69,13 @@
 	</head>
 	<body>
 		<main class="container">
-			<h1>lebenslauf</h1>
+			<a class="top-right" href="index.html">Back to Home</a>
+			<h1>Lebenslauf</h1>
 			<!-- Embed the PDF named 'lebenslauf.pdf' in the same folder. -->
 			<div class="pdf-frame" role="region" aria-label="Lebenslauf PDF">
 				<iframe src="lebenslauf.pdf">If your browser doesn't support embedding PDFs, download the file: <a href="lebenslauf.pdf" style="color:var(--text)">Download Lebenslauf</a></iframe>
 			</div>
-			<p class="note">If the PDF doesn't appear, make sure a file named <code>lebenslauf.pdf</code> is in the same folder as this HTML file.</p>
+			<p class="note"><i>This PDF was last updated on the 8th December 2025</i></p>
 		</main>
 	</body>
 	</html>

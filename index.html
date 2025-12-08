@@ -78,6 +78,16 @@
 			/* one-line gap used before the lebenslauf link */
 			.one-line-gap{ height:1em; }
 
+			/* Links inside body lead text should match body appearance, only underlined */
+			.lead a{
+				color:var(--text);
+				text-decoration:underline;
+				text-underline-offset:4px;
+				text-decoration-thickness:1px;
+				font-family:inherit;
+				font-size:inherit;
+			}
+
 			/* Responsive adjustments: scale down on small screens */
 			@media (max-width:900px){
 				h1{font-size:36pt}
@@ -96,9 +106,10 @@
 			<div class="gap" aria-hidden="true"><div class="rule"></div></div>
 			<p class="lead">This website is under construction.</p>
 			<p class="lead">In the mean time, you can contact me at <b>contact@erik-kunz.com</b>.</p>
+            <p></p>
 			<!-- one-line gap, then link to Lebenslauf page -->
 			<div class="one-line-gap" aria-hidden="true"></div>
-			<p style="margin:0.5rem 0 0 0;"><a href="lebenslauf.html" style="color:var(--text); text-decoration:underline; text-underline-offset:4px;">view my lebenslauf</a></p>
+			<p class="lead" style="margin:0;">Alternatively, you can <a href="lebenslauf.html">view my lebenslauf</a> (only available in German).</p>
 		</main>
 	</body>
 </html>
