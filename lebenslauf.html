@@ -1,0 +1,60 @@
+	<!doctype html>
+	<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>lebenslauf</title>
+
+		<!-- Google Fonts (same link used on index.html) -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+		<style>
+			:root{ --bg: #0E1411; --text: #D0C8B8; }
+			html,body{ height:100%; margin:0; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+
+			.container{
+				min-height:100vh;
+				display:flex;
+				flex-direction:column;
+				align-items:center;
+				justify-content:flex-start;
+				padding:5rem 2rem;
+				box-sizing:border-box;
+			}
+
+			h1{ font-family:'Playfair Display',serif; font-weight:700; font-size:36pt; margin:0 0 2rem 0; text-transform:none; }
+
+			/* PDF viewer container: approx 900pt wide, centered, faint gray drop shadow */
+			.pdf-frame{
+				width:900pt;
+				max-width:100%; /* responsive on small screens */
+				height:1200pt; /* visible viewport height for the embedded PDF */
+				box-shadow: 0 8px 24px rgba(128,128,128,0.18); /* faint gray shadow */
+				overflow:hidden;
+				border-radius:4px;
+				background:#fff; /* in case PDF fails to load, provide light bg */
+			}
+
+			.pdf-frame iframe{
+				width:100%;
+				height:100%;
+				border:0;
+				display:block;
+			}
+
+			.note{ font-family:'Libre Baskerville', serif; margin-top:1rem; font-size:12pt; color:var(--text); opacity:0.9 }
+		</style>
+	</head>
+	<body>
+		<main class="container">
+			<h1>lebenslauf</h1>
+			<!-- Embed the PDF named 'lebenslauf.pdf' in the same folder. -->
+			<div class="pdf-frame" role="region" aria-label="Lebenslauf PDF">
+				<iframe src="lebenslauf.pdf">If your browser doesn't support embedding PDFs, download the file: <a href="lebenslauf.pdf" style="color:var(--text)">Download Lebenslauf</a></iframe>
+			</div>
+			<p class="note">If the PDF doesn't appear, make sure a file named <code>lebenslauf.pdf</code> is in the same folder as this HTML file.</p>
+		</main>
+	</body>
+	</html>
