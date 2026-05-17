@@ -27,7 +27,17 @@
 			}
 
 			body{display:flex;flex-direction:column;}
-			.page{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;row-gap:2rem;padding:2rem 3rem;box-sizing:border-box;}
+			.page{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;row-gap:2rem;padding:2rem 3rem;box-sizing:border-box;position:relative;}
+			.menu-toggle{position:absolute;left:-9999px;}
+			.menu-button{display:inline-flex;align-items:center;justify-content:flex-end;gap:.6rem;cursor:pointer;font-family:'Josefin Sans',sans-serif;font-size:.9rem;text-transform:uppercase;letter-spacing:.2em;}
+			.menu-icon{display:inline-grid;gap:3px;}
+			.menu-icon span{display:block;width:1.25rem;height:2px;background:var(--text);border-radius:1px;}
+			.menu-overlay{position:fixed;inset:0;pointer-events:none;opacity:0;transition:opacity .25s ease;backdrop-filter:blur(18px);background:rgba(244,240,232,.78);z-index:10;display:flex;align-items:flex-start;justify-content:center;padding:6rem 1.5rem;}
+			.menu-toggle:checked ~ .menu-overlay{opacity:1;pointer-events:auto;}
+			.menu-backdrop{position:absolute;inset:0;cursor:pointer;}
+			.menu-list{position:relative;display:flex;flex-direction:column;gap:1.2rem;padding:2rem 2rem 1.5rem;border-radius:1rem;background:rgba(255,255,255,.82);box-shadow:0 25px 80px rgba(0,0,0,.08);min-width:18rem;z-index:1;}
+			.menu-list a{color:var(--text);text-decoration:none;font-size:1.3rem;font-weight:600;letter-spacing:.05em;}
+			.menu-list a:hover{text-decoration:underline;}
 			.top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:1rem;text-transform:uppercase;font-size:.85rem;letter-spacing:.25em;}
 			.top div:last-child{justify-self:end;}
 
@@ -55,16 +65,25 @@
 	</head>
 	<body>
 		<div class="page">
+			<input type="checkbox" id="menu-toggle" class="menu-toggle">
 			<div class="top">
 				<div>Erik Kunz</div>
 				<div>Website under construction</div>
 				<div>Nürnberg, Deutschland</div>
-				<div>Menu</div>
+				<label for="menu-toggle" class="menu-button">Menu<div class="menu-icon"><span></span><span></span><span></span></div></label>
+			</div>
+
+			<div class="menu-overlay" aria-hidden="true">
+				<label for="menu-toggle" class="menu-backdrop"></label>
+				<nav class="menu-list">
+					<a href="index-redesign.html">Home</a>
+					<a href="lebenslauf.html">Resume</a>
+				</nav>
 			</div>
 
 			<section class="main-content">
-				<h1>This website is under construction.</h1>
-				<p class="lead">In the mean time, you can contact me at <b>contact@erik-kunz.com</b>. The page is intentionally small and direct, with a quiet layout that keeps the focus on the announcement and the essential contact path.</p>
+				<h1>Erik Kunz</h1>
+				<p class="lead">You can contact me at <b>contact@erik-kunz.com</b></p>
 				<div class="links">
 					<a href="lebenslauf.html">View my resume (only available in German)</a>
 				</div>
