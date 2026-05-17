@@ -1,0 +1,136 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Erik Kunz</title>
+
+		<!-- Google Fonts provided by user -->
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+		<style>
+			/* Page color scheme */
+			:root{
+				--bg: #D0C8B8;
+				--text: #0E1411;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root{
+					--bg: #0E1411;
+					--text: #D0C8B8;
+				}
+			}
+
+			html,body{
+				height:100%;
+				margin:0;
+				display:flex;
+				flex-direction:column;
+				background:var(--bg);
+				color:var(--text);
+				-webkit-font-smoothing:antialiased;
+				-moz-osx-font-smoothing:grayscale;
+			}
+
+			/* Layout: header aligned to top with buffer; content centered horizontally */
+			main.hero{
+				flex:1;
+				display:flex;
+				flex-direction:column;
+				align-items:center;
+				/* push content toward top with a decent buffer */
+				justify-content:flex-start;
+				text-align:center;
+				padding:5rem 2rem 2rem 2rem; /* top buffer, then horizontal padding */
+				box-sizing:border-box;
+			}
+
+			/* Header */
+			h1{
+				font-family:'Playfair Display', serif;
+				font-weight:700; /* Bold */
+				font-size:70pt; /* As requested */
+				line-height:0.9;
+				margin:0;
+			}
+
+			/* Gap and thin horizontal rule between header and body */
+			.gap{
+				height:120pt; /* space between header and body */
+				position:relative;
+				width:100%;
+			}
+
+			.gap .rule{
+				position:absolute;
+				left:0;
+				right:0;
+				top:50%;
+				height:1px; /* very thin line */
+				background:var(--text);
+				transform:translateY(-50%);
+				opacity:0.95;
+			}
+
+			/* Body text */
+			.lead{
+				font-family:'Libre Baskerville', serif;
+				font-size:30pt; /* changed per request */
+				font-weight:400;
+				margin:0; /* margin is provided by .gap */
+				line-height:1.05;
+			}
+
+			/* one-line gap used before the lebenslauf link */
+			.one-line-gap{ height:1em; }
+
+			/* Links inside body lead text should match body appearance, only underlined */
+			.lead a{
+				color:var(--text);
+				text-decoration:underline;
+				text-underline-offset:4px;
+				text-decoration-thickness:1px;
+				font-family:inherit;
+				font-size:inherit;
+			}
+
+			/* Responsive adjustments: scale down on small screens */
+			@media (max-width:900px){
+				h1{font-size:36pt}
+				.lead{font-size:20pt}
+			}
+
+			@media (max-width:420px){
+				h1{font-size:26pt}
+				.lead{font-size:16pt}
+			}
+
+			.imprint{
+				font-family:'Josefin Sans', sans-serif;
+				font-size:0.75rem;
+				line-height:1.5;
+				text-align:center;
+				color:var(--text);
+				opacity:.75;
+				margin:0;
+				padding:1rem 2rem 2rem;
+				box-sizing:border-box;
+			}
+		</style>
+	</head>
+	<body>
+		<main class="hero">
+			<h1>Erik Kunz</h1>
+			<div class="gap" aria-hidden="true"><div class="rule"></div></div>
+			<p class="lead">This website is under construction.</p>
+			<p class="lead">In the mean time, you can contact me at <b>contact@erik-kunz.com</b>.</p>
+			<!-- one-line gap, then link to Lebenslauf page -->
+			<div class="one-line-gap" aria-hidden="true"></div>
+			<p class="lead" style="margin:0;">Alternatively, you can <a href="lebenslauf.html">view my resume</a> (only available in German).</p>
+		</main>
+		<footer class="imprint">Impressum: Erik Kunz · Rangierbahnhof-Ausfahrbahnhof 1 · 90469 Nürnberg · Deutschland</footer>
+	</body>
+</html>
