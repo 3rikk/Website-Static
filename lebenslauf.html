@@ -5,7 +5,6 @@
 	<meta name="viewport" content="width=device-width,initial-scale=1">
 	<title>Lebenslauf — Erik Kunz</title>
 
-<<<<<<< HEAD
 	<link rel="preconnect" href="https://fonts.googleapis.com">
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
@@ -24,45 +23,42 @@
 		.footer div{max-width:50%;}
 
 		@media(max-width:900px){
-			<!doctype html>
-			<html lang="en">
-			<head>
-				<meta charset="utf-8">
-				<meta name="viewport" content="width=device-width,initial-scale=1">
-				<title>Lebenslauf — Erik Kunz</title>
+			.page{padding:2rem 2rem;}
+			.top{grid-template-columns:1fr;row-gap:.75rem;text-align:center;}
+			.top div:last-child{justify-self:center;}
+			.footer{flex-direction:column;align-items:flex-start;gap:.75rem;}
+		}
 
-				<link rel="preconnect" href="https://fonts.googleapis.com">
-				<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-				<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+		@media(max-width:620px){
+			h1{font-size:2.8rem;}
+			.pdf-frame{height:calc(100vh - 24rem);min-height:420px;}
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<div class="top">
+			<div>Lebenslauf</div>
+			<div>Erik Kunz</div>
+			<div><a href="index.html" class="links">Back to Home</a></div>
+		</div>
 
-				<link rel="stylesheet" href="style.css">
-			</head>
-			<body>
-				<div class="page">
-					<div class="top">
-						<div>Lebenslauf</div>
-						<div>Erik Kunz</div>
-						<div><a href="index.html" class="links">Back to Home</a></div>
-					</div>
+		<section class="main-content">
+			<h1>Curriculum Vitae (Lebenslauf)</h1>
+			<p class="subtitle">This page presents the current curriculum vitae for Erik Kunz. If your browser does not display the embedded PDF, use the download link below.</p>
+			<div class="pdf-frame" role="region" aria-label="Lebenslauf PDF">
+				<iframe src="lebenslauf.pdf">If your browser doesn't support embedding PDFs, download the file: <a href="lebenslauf.pdf">Download Lebenslauf</a></iframe>
+			</div>
+			<div class="links">
+				<a href="lebenslauf.pdf">Download Lebenslauf</a>
+				<a href="index.html">Return to Home</a>
+			</div>
+		</section>
 
-					<section class="main-content">
-						<h1>Curriculum Vitae (Lebenslauf)</h1>
-						<p class="subtitle">This page presents the current curriculum vitae for Erik Kunz. If your browser does not display the embedded PDF, use the download link below.</p>
-						<div class="pdf-frame" role="region" aria-label="Lebenslauf PDF">
-							<iframe src="lebenslauf.pdf">If your browser doesn't support embedding PDFs, download the file: <a href="lebenslauf.pdf">Download Lebenslauf</a></iframe>
-						</div>
-						<div class="links">
-							<a href="lebenslauf.pdf">Download Lebenslauf</a>
-							<a href="index.html">Return to Home</a>
-						</div>
-						<p class="note"><i>This PDF was last updated on the 8th December 2025</i></p>
-					</section>
-
-					<div class="footer">
-						<div>Impressum: Erik Kunz · Rangierbahnhof-Ausfahrbahnhof 1 · 90469 Nürnberg · Deutschland</div>
-						<div>&copy; 2026</div>
-					</div>
-				</div>
-			</body>
-			</html>
-=======
+		<div class="footer">
+			<div>Impressum: Erik Kunz · Rangierbahnhof-Ausfahrbahnhof 1 · 90469 Nürnberg · Deutschland</div>
+			<div>&copy; 2026</div>
+		</div>
+	</div>
+</body>
+</html>
