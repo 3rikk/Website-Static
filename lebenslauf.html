@@ -9,29 +9,7 @@
 	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-	<style>
-		:root{
-			--bg:#F4F0E8;
-			--text:#111111;
-			--muted:#5B5B5B;
-		}
-
-		html,body{
-			height:100%;
-			margin:0;
-			background:var(--bg);
-			color:var(--text);
-			font-family:'Josefin Sans',sans-serif;
-			-webkit-font-smoothing:antialiased;
-			-moz-osx-font-smoothing:grayscale;
-		}
-
-		body{display:flex;flex-direction:column;}
-		.page{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;row-gap:2rem;padding:2rem 3rem;box-sizing:border-box;position:relative;}
-		.top{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;gap:1rem;text-transform:uppercase;font-size:.85rem;letter-spacing:.25em;}
-		.top div:last-child{justify-self:end;}
-
-		.main-content{display:flex;flex-direction:column;justify-content:flex-start;gap:1.5rem;max-width:65rem;}
+	<link rel="stylesheet" href="style.css">
 		h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,6vw,5rem);line-height:0.9;margin:0;text-transform:uppercase;letter-spacing:-0.05em;}
 		.subtitle{font-family:'Libre Baskerville',serif;font-size:1rem;line-height:1.8;max-width:44rem;margin:0;color:var(--text);opacity:.9;}
 	
@@ -69,7 +47,7 @@
 			<h1>Curriculum Vitae (Lebenslauf)</h1>
 			<p class="subtitle">This page presents the current curriculum vitae for Erik Kunz. If your browser does not display the embedded PDF, use the download link below.</p>
 			<div class="pdf-frame" role="region" aria-label="Lebenslauf PDF">
-				<iframe src="lebenslauf.pdf">If your browser doesn't support embedding PDFs, download the file: <a href="lebenslauf.pdf" style="color:var(--text)">Download Lebenslauf</a></iframe>
+				<iframe src="lebenslauf.pdf">If your browser doesn't support embedding PDFs, download the file: <a href="lebenslauf.pdf">Download Lebenslauf</a></iframe>
 			</div>
 			<div class="links">
 				<a href="lebenslauf.pdf">Download Lebenslauf</a>

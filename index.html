@@ -9,63 +9,7 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
 
-		<style>
-			:root{
-				--bg:#F4F0E8;
-				--text:#111111;
-				--muted:#5B5B5B;
-			}
-
-			html,body{
-				height:100%;
-				margin:0;
-				background:var(--bg);
-				color:var(--text);
-				font-family:'Josefin Sans',sans-serif;
-				-webkit-font-smoothing:antialiased;
-				-moz-osx-font-smoothing:grayscale;
-			}
-
-			body{display:flex;flex-direction:column;}
-			.page{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;row-gap:2rem;padding:2rem 3rem;box-sizing:border-box;position:relative;}
-			.menu-toggle{position:absolute;left:-9999px;}
-			.menu-button{display:inline-flex;align-items:center;justify-content:flex-end;gap:.6rem;cursor:pointer;font-family:'Josefin Sans',sans-serif;font-size:.9rem;text-transform:uppercase;letter-spacing:.2em;}
-			.menu-icon{display:inline-grid;gap:3px;}
-			.menu-icon span{display:block;width:1.25rem;height:2px;background:var(--text);border-radius:1px;}
-			.menu-overlay{position:fixed;inset:0;pointer-events:none;opacity:0;transition:opacity .25s ease;display:flex;align-items:stretch;justify-content:flex-end;background:transparent;z-index:10;}
-			.menu-toggle:checked ~ .menu-overlay{opacity:1;pointer-events:auto;}
-			.menu-backdrop{position:absolute;inset:0;cursor:pointer;}
-			.menu-list{position:relative;display:flex;flex-direction:column;gap:1.2rem;padding:2rem;border-radius:0;background:rgba(255,255,255,.22);backdrop-filter:blur(16px);box-shadow:-20px 0 60px rgba(0,0,0,.08);width:clamp(14rem,12.5vw,18rem);min-width:14rem;height:100vh;z-index:1;}
-			.menu-list a{color:var(--text);text-decoration:none;font-size:1.3rem;font-weight:600;letter-spacing:.05em;}
-			.menu-list a:hover{text-decoration:underline;}
-			.top{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-items:center;gap:1rem;text-transform:uppercase;font-size:.85rem;letter-spacing:.25em;}
-			.top div:last-child{justify-self:end;}
-
-			.main-content{display:flex;flex-direction:column;justify-content:center;gap:1.5rem;max-width:65rem;}
-			h1{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,7vw,8rem);line-height:0.9;margin:0;text-transform:uppercase;letter-spacing:-0.05em;}
-			.lead{font-family:'Libre Baskerville',serif;font-size:clamp(1.05rem,1.6vw,1.55rem);line-height:1.75;max-width:44rem;margin:0;color:var(--text);}
-			.links{display:flex;flex-direction:column;gap:.6rem;}
-			.links a{color:var(--text);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;font-family:'Libre Baskerville',serif;font-size:clamp(1.05rem,1.6vw,1.55rem);line-height:1.75;}
-
-			.footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.2em;}
-			.footer div{max-width:50%;white-space:normal;}
-
-			@media (min-width:900px){
-				.footer div:first-child{white-space:nowrap;}
-			}
-
-			@media (max-width:900px){
-				.page{padding:2rem 2rem;}
-				.top{grid-template-columns:1fr;row-gap:.75rem;text-align:center;}
-				.top div:last-child{justify-self:center;}
-				.footer{flex-direction:column;align-items:flex-start;gap:.75rem;}
-			}
-
-			@media (max-width:520px){
-				h1{font-size:3.2rem;}
-				.lead{font-size:1rem;}
-			}
-		</style>
+		<link rel="stylesheet" href="style.css">
 	</head>
 	<body>
 		<div class="page">

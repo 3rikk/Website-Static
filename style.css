@@ -1,0 +1,57 @@
+:root{
+	--bg:#F4F0E8;
+	--text:#111111;
+	--muted:#5B5B5B;
+}
+*,*::before,*::after{box-sizing:border-box;}
+html,body{height:100%;margin:0;background:var(--bg);color:var(--text);font-family:'Josefin Sans',sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;}
+body{display:flex;flex-direction:column;}
+.page{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;row-gap:2rem;padding:2rem 3rem;position:relative;}
+.top{display:flex;align-items:center;justify-content:space-between;gap:1rem;text-transform:uppercase;font-size:.85rem;letter-spacing:.25em;min-width:0;}
+.top > div:first-child{flex:0 1 auto;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+.top > .menu-button{flex:0 0 auto;}
+.menu-toggle{position:absolute;left:-9999px;}
+.menu-button{display:inline-flex;align-items:center;justify-content:flex-end;gap:.6rem;cursor:pointer;font-size:.9rem;text-transform:uppercase;letter-spacing:.2em;}
+.menu-icon{display:inline-grid;gap:3px;}
+.menu-icon span{display:block;width:1.25rem;height:2px;background:var(--text);border-radius:1px;}
+.menu-overlay{position:fixed;inset:0;pointer-events:none;opacity:0;transition:opacity .25s ease;display:flex;align-items:stretch;justify-content:flex-end;background:transparent;z-index:10;}
+.menu-toggle:checked ~ .menu-overlay{opacity:1;pointer-events:auto;}
+.menu-backdrop{position:absolute;inset:0;cursor:pointer;}
+.menu-list{position:relative;display:flex;flex-direction:column;gap:1.2rem;padding:2rem;background:rgba(255,255,255,.22);backdrop-filter:blur(16px);box-shadow:-20px 0 60px rgba(0,0,0,.08);width:clamp(14rem,12.5vw,18rem);min-width:14rem;height:100vh;z-index:1;}
+.menu-list a{color:var(--text);text-decoration:none;font-size:1.3rem;font-weight:600;letter-spacing:.05em;}
+.menu-list a:hover{text-decoration:underline;}
+.hero,.main{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;text-align:center;padding:5rem 2rem 2rem 2rem;position:relative;}
+.main-content{display:flex;flex-direction:column;justify-content:center;gap:1.5rem;max-width:65rem;}
+h1{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,7vw,8rem);line-height:.9;margin:0;text-transform:uppercase;letter-spacing:-.05em;}
+.lead{font-family:'Libre Baskerville',serif;font-size:clamp(1.05rem,1.6vw,1.55rem);line-height:1.75;max-width:44rem;margin:0;color:var(--text);}
+.links{display:flex;flex-direction:column;gap:.6rem;}
+.links a{color:var(--text);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;font-family:'Libre Baskerville',serif;font-size:clamp(1.05rem,1.6vw,1.55rem);line-height:1.75;}
+.footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.2em;}
+.footer div{max-width:50%;white-space:normal;}
+.imprint{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.2em;margin:0;padding:1rem 2rem 2rem;}
+.pdf-frame{width:100%;max-width:900px;height:calc(100vh - 22rem);min-height:420px;background:transparent;border:0;overflow:hidden;border-radius:12px;box-shadow:0 20px 60px rgba(0,0,0,.08);}
+.pdf-frame iframe{width:100%;height:100%;border:0;display:block;}
+.subtitle{font-family:'Libre Baskerville',serif;font-size:1rem;line-height:1.8;max-width:44rem;margin:0;color:var(--text);opacity:.9;}
+.gap{height:120pt;position:relative;width:100%;}
+.gap .rule{position:absolute;left:0;right:0;top:50%;height:1px;background:var(--text);transform:translateY(-50%);opacity:.95;}
+.one-line-gap{height:1em;}
+@media(max-width:900px){
+	.page{padding:2rem 2rem;}
+	.top{flex-wrap:nowrap;}
+	.footer{flex-direction:column;align-items:flex-start;gap:.75rem;}
+	.hero,.main{padding:4rem 1.5rem 1.5rem;}
+}
+@media(max-width:620px){
+	h1{font-size:3.2rem;}
+	.lead{font-size:1rem;}
+	.subtitle{font-size:.95rem;}
+	.menu-list{width:100vw;min-width:auto;}
+	.top > div:first-child{white-space:normal;overflow-wrap:break-word;}
+	.footer div:first-child{width:100%;max-width:100%;}
+	.imprint{padding-left:1rem;padding-right:1rem;}
+}
+@media(max-width:420px){
+	.gap{height:80pt;}
+	h1{font-size:2.6rem;}
+	.pdf-frame{height:calc(100vh - 24rem);min-height:320px;}
+}
