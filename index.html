@@ -38,7 +38,7 @@
 			.menu-list{position:relative;display:flex;flex-direction:column;gap:1.2rem;padding:2rem;border-radius:0;background:rgba(255,255,255,.22);backdrop-filter:blur(16px);box-shadow:-20px 0 60px rgba(0,0,0,.08);width:clamp(14rem,12.5vw,18rem);min-width:14rem;height:100vh;z-index:1;}
 			.menu-list a{color:var(--text);text-decoration:none;font-size:1.3rem;font-weight:600;letter-spacing:.05em;}
 			.menu-list a:hover{text-decoration:underline;}
-			.top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:1rem;text-transform:uppercase;font-size:.85rem;letter-spacing:.25em;}
+			.top{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;gap:1rem;text-transform:uppercase;font-size:.85rem;letter-spacing:.25em;}
 			.top div:last-child{justify-self:end;}
 
 			.main-content{display:flex;flex-direction:column;justify-content:center;gap:1.5rem;max-width:65rem;}
@@ -47,8 +47,9 @@
 			.links{display:flex;flex-direction:column;gap:.6rem;}
 			.links a{color:var(--text);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;font-family:'Libre Baskerville',serif;font-size:clamp(1.05rem,1.6vw,1.55rem);line-height:1.75;}
 
-			.footer{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.2em;}
+			.footer{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.2em;}
 			.footer div{max-width:50%;}
+			.footer div:first-child{white-space:nowrap;}
 
 			@media (max-width:900px){
 				.page{padding:2rem 2rem;}
@@ -68,8 +69,7 @@
 			<input type="checkbox" id="menu-toggle" class="menu-toggle">
 			<div class="top">
 				<div>Erik Kunz</div>
-				<div>Website under construction</div>
-				<div>Nürnberg, Deutschland</div>
+				<div>Creative direction & contact</div>
 				<label for="menu-toggle" class="menu-button">Menu<div class="menu-icon"><span></span><span></span><span></span></div></label>
 			</div>
 
@@ -77,7 +77,7 @@
 				<label for="menu-toggle" class="menu-backdrop"></label>
 				<nav class="menu-list">
 					<a href="index.html">Home</a>
-					<a href="lebenslauf.html">Resume</a>
+					<a href="lebenslauf.html">CV</a>
 				</nav>
 			</div>
 
