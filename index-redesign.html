@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Erik Kunz — Redesign</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+		<style>
+			:root{
+				--bg:#F4F0E8;
+				--text:#111111;
+				--muted:#5B5B5B;
+			}
+
+			html,body{
+				height:100%;
+				margin:0;
+				background:var(--bg);
+				color:var(--text);
+				font-family:'Josefin Sans',sans-serif;
+				-webkit-font-smoothing:antialiased;
+				-moz-osx-font-smoothing:grayscale;
+			}
+
+			body{display:flex;flex-direction:column;}
+			.page{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto;row-gap:2rem;padding:2rem 3rem;box-sizing:border-box;}
+			.top{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));align-items:center;gap:1rem;text-transform:uppercase;font-size:.85rem;letter-spacing:.25em;}
+			.top div:last-child{justify-self:end;}
+
+			.main-content{display:flex;flex-direction:column;justify-content:center;gap:1.5rem;max-width:65rem;}
+			h1{font-family:'Cormorant Garamond',serif;font-size:clamp(4rem,7vw,8rem);line-height:0.9;margin:0;text-transform:uppercase;letter-spacing:-0.05em;}
+			.lead{font-family:'Libre Baskerville',serif;font-size:clamp(1.05rem,1.6vw,1.55rem);line-height:1.75;max-width:44rem;margin:0;color:var(--text);}
+			.links{display:flex;flex-direction:column;gap:.6rem;}
+			.links a{color:var(--text);text-decoration:underline;text-underline-offset:6px;text-decoration-thickness:1px;font-family:inherit;font-size:1rem;}
+
+			.footer{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.2em;}
+			.footer div{max-width:50%;}
+
+			@media (max-width:900px){
+				.page{padding:2rem 2rem;}
+				.top{grid-template-columns:1fr;row-gap:.75rem;text-align:center;}
+				.top div:last-child{justify-self:center;}
+				.footer{flex-direction:column;align-items:flex-start;gap:.75rem;}
+			}
+
+			@media (max-width:520px){
+				h1{font-size:3.2rem;}
+				.lead{font-size:1rem;}
+			}
+		</style>
+	</head>
+	<body>
+		<div class="page">
+			<div class="top">
+				<div>Erik Kunz</div>
+				<div>Website under construction</div>
+				<div>Nürnberg, Deutschland</div>
+				<div>Menu</div>
+			</div>
+
+			<section class="main-content">
+				<h1>This website is under construction.</h1>
+				<p class="lead">In the mean time, you can contact me at <b>contact@erik-kunz.com</b>. The page is intentionally small and direct, with a quiet layout that keeps the focus on the announcement and the essential contact path.</p>
+				<div class="links">
+					<a href="lebenslauf.html">View my resume (only available in German)</a>
+				</div>
+			</section>
+
+			<div class="footer">
+				<div>Impressum: Erik Kunz · Rangierbahnhof-Ausfahrbahnhof 1 · 90469 Nürnberg · Deutschland</div>
+				<div>&copy; 2026</div>
+			</div>
+		</div>
+	</body>
+</html>
