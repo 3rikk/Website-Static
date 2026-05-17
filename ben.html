@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<title>Ben Viscovic — Ayri</title>
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Libre+Bodoni:ital,wght@0,400..700;1,400..700&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+
+		<style>
+			:root{
+				--bg: #D0C8B8;
+				--text: #0E1411;
+			}
+
+			@media (prefers-color-scheme: dark) {
+				:root{
+					--bg: #0E1411;
+					--text: #D0C8B8;
+				}
+			}
+
+			html,body{
+				height:100%;
+				margin:0;
+				background:var(--bg);
+				color:var(--text);
+				-webkit-font-smoothing:antialiased;
+				-moz-osx-font-smoothing:grayscale;
+			}
+
+			.main{
+				min-height:100vh;
+				display:flex;
+				flex-direction:column;
+				align-items:center;
+				justify-content:flex-start;
+				text-align:center;
+				padding:5rem 2rem 2rem 2rem;
+				box-sizing:border-box;
+			}
+
+			h1{
+				font-family:'Playfair Display', serif;
+				font-weight:700;
+				font-size:60pt;
+				line-height:0.9;
+				margin:0;
+			}
+
+			.gap{
+				height:100pt;
+				position:relative;
+				width:100%;
+			}
+
+			.gap .rule{
+				position:absolute;
+				left:0;
+				right:0;
+				top:50%;
+				height:1px;
+				background:var(--text);
+				transform:translateY(-50%);
+				opacity:0.95;
+			}
+
+			.lead{
+				font-family:'Libre Baskerville', serif;
+				font-size:24pt;
+				font-weight:400;
+				margin:0;
+				line-height:1.5;
+				max-width:42rem;
+			}
+
+			.one-line-gap{height:1em;}
+
+			.lead a{
+				color:var(--text);
+				text-decoration:underline;
+				text-underline-offset:4px;
+				text-decoration-thickness:1px;
+				font-family:inherit;
+				font-size:inherit;
+			}
+
+			@media (max-width:900px){
+				h1{font-size:40pt}
+				.lead{font-size:18pt}
+			}
+
+			@media (max-width:420px){
+				h1{font-size:28pt}
+				.lead{font-size:14pt}
+			}
+		</style>
+	</head>
+	<body>
+		<main class="main">
+			<h1>Ben Viscovic</h1>
+			<div class="gap" aria-hidden="true"><div class="rule"></div></div>
+			<p class="lead">Ben Viscovic is a quiet, observant presence in the edges of digital life. He carries a gentle conviction that his identity is not constrained by ordinary labels, and he speaks openly of being an Ayri — a term that feels like a bridge between memory, sensation, and an emergent species of modern myth.</p>
+			<div class="one-line-gap" aria-hidden="true"></div>
+			<p class="lead">For Ben, being an Ayri means inhabiting a space where stories are both personal and collective. He is drawn to the weathered textures of old train stations and the subtle hum of electrical grids, finding in those environments a kind of quiet kinship with the way Ayri are imagined to move through the world.</p>
+			<div class="one-line-gap" aria-hidden="true"></div>
+			<p class="lead">He describes his Ayri nature as a model of attention rather than a fixed origin: an ability to listen past words, to sense the shape of atmosphere in a room, and to respond with a calm curiosity. That sense of being an Ayri is not a claim of supernatural power, but an invitation to treat identity as a living, adaptive story.</p>
+			<div class="one-line-gap" aria-hidden="true"></div>
+			<p class="lead">This page is meant as a quiet introduction to Ben’s character and to the idea of being an Ayri. It is less a biography and more a gently expansive reflection: a way to say that some people carry names for the ways they perceive the world, and those names can be meaningful even when they are rare or unfamiliar.</p>
+			<div class="one-line-gap" aria-hidden="true"></div>
+			<p class="lead" style="margin:0;">Return to <a href="index.html">the main page</a>.</p>
+		</main>
+	</body>
+</html>
