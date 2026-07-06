@@ -3,7 +3,7 @@ const injectFooter = () => {
 
   const footerHtml = `
     <footer class="footer site-footer">
-      <div>Impressum: Erik Kunz · Rangierbahnhof-Ausfahrbahnhof 1 · 90469 Nürnberg</div>
+      <div>Impressum: Erik Kunz · Äussere Bayreuther Strasse 100 · 90491 Nürnberg</div>
       <div>&copy; 2026</div>
     </footer>`;
 
