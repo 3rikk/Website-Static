@@ -1,22 +1,21 @@
+/* Sitewide footer. Its copy lives in site-content.js. */
 const injectFooter = () => {
   if (document.querySelector('.site-footer')) return;
 
-  const footerHtml = `
-    <footer class="footer site-footer">
-      <div>Impressum: Erik Kunz · Äussere Bayreuther Strasse 100 · 90491 Nürnberg</div>
-      <div>&copy; 2026</div>
-    </footer>`;
+  const footer = document.createElement('footer');
+  footer.className = 'footer site-footer';
+  [siteText.footer.address, siteText.footer.copyright].forEach((text) => {
+    const item = document.createElement('div');
+    item.textContent = text;
+    footer.append(item);
+  });
 
   const mount = document.querySelector('.page') || document.body;
-  mount.insertAdjacentHTML('beforeend', footerHtml);
-};
-
-const initFooter = () => {
-  injectFooter();
+  mount.append(footer);
 };
 
 if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', initFooter);
+  document.addEventListener('DOMContentLoaded', injectFooter);
 } else {
-  initFooter();
+  injectFooter();
 }

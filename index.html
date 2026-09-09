@@ -3,26 +3,37 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>Erik Kunz - Home</title>
-
+		<meta name="description" content="">
+		<title></title>
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Josefin+Sans:ital,wght@0,100..700;1,100..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-
+		<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300..700;1,300..700&family=Josefin+Sans:ital,wght@0,100..700;1,400..700&family=Libre+Baskerville:ital,wght@0,400..700;1,400..700&display=swap" rel="stylesheet">
 		<link rel="stylesheet" href="style.css">
 	</head>
-	<body>
-		<div class="page">
-			<section class="main-content">
-				<h1>Erik Kunz</h1>
-				<p class="lead">You can contact me at <b>contact@erik-kunz.com</b></p>
-				<div class="links">
-					<a href="lebenslauf.pdf">Alternatively, you can view my CV (only available in German)</a>
+	<body data-page="home">
+		<div class="page cv-home">
+			<section class="intro" aria-labelledby="intro-title">
+				<div class="intro-content">
+					<div class="intro-identity">
+						<img class="intro-portrait" alt="">
+						<p class="eyebrow" id="intro-eyebrow"></p>
+						<h1 id="intro-title"></h1>
+					</div>
+					<div class="intro-actions">
+						<p class="lead" id="intro-description"></p>
+						<p class="lead" id="intro-contact"></p>
+					</div>
 				</div>
+				<a class="scroll-prompt" href="#cv"><span></span><i aria-hidden="true"></i></a>
 			</section>
-
+			<main id="cv" class="cv-section" aria-labelledby="cv-title">
+				<header class="cv-heading"><p class="eyebrow" id="cv-eyebrow"></p><h2 id="cv-title"><span id="cv-title-text"></span><br><em id="cv-title-emphasis"></em></h2><p id="cv-description"></p></header>
+				<div class="timeline-key" id="timeline-key" role="group"></div>
+				<div class="timeline-filters" id="timeline-filters" role="group"></div>
+				<div id="timeline" class="timeline mobile-work-active"></div>
+				<p class="cv-edit-note" id="cv-edit-note"></p>
+			</main>
 		</div>
-		<script src="menu.js" defer></script>
-		<script src="footer.js" defer></script>
+		<script src="site-content.js" defer></script><script src="site.js" defer></script><script src="menu.js" defer></script><script src="footer.js" defer></script><script src="cv-entries.js" defer></script><script src="cv-data.js" defer></script>
 	</body>
 </html>

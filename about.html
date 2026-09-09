@@ -3,7 +3,8 @@
 	<head>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
-		<title>Erik Kunz — Redesign</title>
+		<title></title>
+		<meta name="description" content="">
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,19 +12,16 @@
 
 		<link rel="stylesheet" href="style.css">
 	</head>
-	<body>
+	<body data-page="about">
 		<div class="page">
 			<section class="main-content">
-				<h1>About Me</h1>
-				<p class="lead">I am an economics student specialising in Data Science and IBS from London, currently living and studying in Nuremberg, Germany.
-                    <br><br>
-                    This website currently serves as a placeholder, though in the future it will become a digital portfolio of my work and projects.
-                    <br>
-                    It also acts as a playground for me to experiment with web design and development, which is a hobby of mine. The page is a static Cloudflare page, deployed with a Cloudflare Worker that auto-builds and updates the site when the GitHub source is updated. I work with Visual Studio Code and tend to live-commit updates as I work, hence the frequent and small commits.
-                </p>
+				<h1 id="about-title"></h1>
+				<div id="about-copy"></div>
 			</section>
 
 		</div>
+		<script src="site-content.js" defer></script>
+		<script src="site.js" defer></script>
 		<script src="menu.js" defer></script>
 		<script src="footer.js" defer></script>
 	</body>
