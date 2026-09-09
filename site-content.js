@@ -36,6 +36,7 @@ const siteContentByLocale = {
     },
     tags: {
       work: 'Work',
+      hireme: 'Hire Me!',
       internship: 'Internship',
       volunteer: 'Volunteer',
       education: 'Education',
@@ -50,6 +51,7 @@ const siteContentByLocale = {
       viewDetails: 'View details',
       detailsFor: 'View details for',
       closeDetails: 'Close details',
+      dismissHireMe: 'Dismiss Hire Me notice',
       start: 'Start',
       end: 'End',
       editNote: 'Entries are maintained in',
@@ -109,6 +111,7 @@ const siteContentByLocale = {
     },
     tags: {
       work: 'Berufserfahrung',
+      hireme: 'Hire Me!',
       internship: 'Praktikum',
       volunteer: 'Ehrenamt',
       education: 'Bildung',
@@ -123,6 +126,7 @@ const siteContentByLocale = {
       viewDetails: 'Details ansehen',
       detailsFor: 'Details ansehen für',
       closeDetails: 'Details schließen',
+      dismissHireMe: 'Hinweis „Hire Me!“ schließen',
       start: 'Beginn',
       end: 'Ende',
       editNote: 'Einträge werden gepflegt in',

@@ -70,7 +70,7 @@ const renderHome = () => {
   if (filters) {
     filters.setAttribute('aria-label', siteText.timeline.filterLabel);
     filters.replaceChildren();
-    ['work', 'internship', 'volunteer', 'education', 'extracurricular'].forEach((tag) => {
+    ['hireme', 'work', 'internship', 'volunteer', 'education', 'extracurricular'].forEach((tag) => {
       const button = document.createElement('button');
       const tick = document.createElement('span');
       tick.setAttribute('aria-hidden', 'true');

@@ -2,6 +2,7 @@ const monthNames = { jan: 0, january: 0, januar: 0, feb: 1, february: 1, februar
 const monthNamePattern = 'jan(?:uary|uar)?|feb(?:ruary|ruar)?|mar(?:ch)?|mär(?:z)?|maerz|apr(?:il)?|may|mai|jun(?:e|i)?|jul(?:y|i)?|aug(?:ust)?|sep(?:t(?:ember)?)?|oct(?:ober)?|okt(?:ober)?|nov(?:ember)?|dec(?:ember)?|dez(?:ember)?';
 const exactDatePattern = new RegExp(`(\\d{1,2})\\.?\\s+(${monthNamePattern})\\.?\\s+(\\d{4})`, 'i');
 const tagRules = {
+  hireme: { type: 'work', compact: false },
   internship: { type: 'work' },
   volunteer: { type: 'work' },
   extracurricular: { type: 'education' },
@@ -57,13 +58,13 @@ const parseRange = (date) => {
 
 const timelineText = siteText.timeline;
 const tagLabel = (tag) => siteText.tags[tag] || tag || '';
-const card = (entry) => `<button class="timeline-card timeline-card--${entry.tag || entry.type}${entry.isCompact ? ' timeline-card--compact' : ''}" type="button" aria-haspopup="dialog" aria-label="${escapeHtml(`${timelineText.detailsFor} ${entry.title}`)}">${entry.isCompact ? `<span class="card-type card-tag">${escapeHtml(tagLabel(entry.tag))}</span>` : `<span class="card-type">${escapeHtml(tagLabel(entry.type))}</span><span class="card-date">${escapeHtml(entry.date)}</span>`}<strong>${escapeHtml(entry.title)}</strong><span class="card-organisation">${escapeHtml(entry.organisation)}</span>${entry.location ? `<span class="card-location">${escapeHtml(entry.location)}</span>` : ''}${entry.isCompact ? '' : `<span class="card-preview">${escapeHtml(entry.description)}</span>`}<span class="card-more">${escapeHtml(timelineText.viewDetails)} <span class="card-more-arrow" aria-hidden="true">&rarr;</span></span></button>`;
+const card = (entry) => `<button class="timeline-card timeline-card--${entry.tag || entry.type}${entry.isCompact ? ' timeline-card--compact' : ''}" type="button" aria-haspopup="dialog" aria-label="${escapeHtml(`${timelineText.detailsFor} ${entry.title}`)}">${entry.isCompact ? `<span class="card-type card-tag">${escapeHtml(tagLabel(entry.tag))}</span>` : `<span class="card-type">${escapeHtml(tagLabel(entry.tag || entry.type))}</span><span class="card-date">${escapeHtml(entry.date)}</span>`}<strong>${escapeHtml(entry.title)}</strong><span class="card-organisation">${escapeHtml(entry.organisation)}</span>${entry.location ? `<span class="card-location">${escapeHtml(entry.location)}</span>` : ''}${entry.isCompact ? '' : `<span class="card-preview">${escapeHtml(entry.description)}</span>`}<span class="card-more">${escapeHtml(timelineText.viewDetails)} <span class="card-more-arrow" aria-hidden="true">&rarr;</span></span></button>`;
 const range = (entry) => {
   const [startLabel, endLabel = startLabel] = entry.date.split(/\s*(?:—|–|-|\bto\b)\s*/i);
   return `<div class="timeline-range ${entry.type}${entry.tag ? ` tag-${entry.tag}` : ''}" data-entry-index="${entry.index}" style="--range-start:${entry.rangeStartMonth};--range-duration:${entry.rangeVisualDurationMonths}" aria-label="${escapeHtml(entry.date)}"><span class="range-boundary range-boundary--end">${escapeHtml(timelineText.end)} · ${escapeHtml(endLabel)}</span><span class="range-boundary range-boundary--start">${escapeHtml(timelineText.start)} · ${escapeHtml(startLabel)}</span></div>`;
 };
 const buildMonthTicks = (calendarPosition) => calendarPosition.map((offset) => `<span class="month-tick" style="--tick-month:${offset}" aria-hidden="true"></span>`).join('');
-const connectorColours = { work: '#2775b8', education: '#e77928', internship: '#378e5b', volunteer: '#8156b1', extracurricular: '#cda21c' };
+const connectorColours = { work: '#2775b8', hireme: '#d94a4a', education: '#e77928', internship: '#378e5b', volunteer: '#8156b1', extracurricular: '#cda21c' };
 const drawConnectorPaths = (timeline, entries) => {
   const box = timeline.getBoundingClientRect();
   let svg = timeline.querySelector('.timeline-connectors');
@@ -117,7 +118,7 @@ const closeDetailModal = () => {
   if (!modal || modal.hidden) return;
   modal.hidden = true;
   document.body.classList.remove('modal-open');
-  lastFocusedEntry?.focus();
+  lastFocusedEntry?.focus({ preventScroll: true });
 };
 
 const openDetailModal = (entry, trigger) => {
@@ -138,6 +139,33 @@ document.addEventListener('keydown', (event) => {
   if (event.key === 'Escape') closeDetailModal();
 });
 
+const focusTimelineEntry = (entry) => {
+  const timeline = document.getElementById('timeline');
+  const item = timeline?.querySelector(`.timeline-item[data-entry-index="${entry.index}"]`);
+  if (!timeline || !item) return;
+  timeline.dispatchEvent(new CustomEvent('timeline-entry-select', { detail: item }));
+  item.scrollIntoView({ block: 'center', behavior: 'auto' });
+};
+
+const renderHireMeNotice = (entries) => {
+  const home = document.querySelector('.cv-home');
+  const hireMeEntry = entries.find((entry) => entry.tag === 'hireme');
+  home?.querySelector('.hireme-notice')?.remove();
+  if (!home || !hireMeEntry) return;
+
+  const notice = document.createElement('aside');
+  notice.className = 'hireme-notice';
+  notice.setAttribute('aria-label', tagLabel(hireMeEntry.tag));
+  notice.innerHTML = `${card({ ...hireMeEntry, isCompact: true })}<button class="hireme-notice__dismiss" type="button" aria-label="${escapeHtml(timelineText.dismissHireMe)}">×</button>`;
+  const cardElement = notice.querySelector('.timeline-card');
+  cardElement.addEventListener('click', () => {
+    focusTimelineEntry(hireMeEntry);
+    openDetailModal(hireMeEntry, cardElement);
+  });
+  notice.querySelector('.hireme-notice__dismiss').addEventListener('click', () => notice.remove());
+  home.append(notice);
+};
+
 const buildTimeline = () => {
   const timeline = document.getElementById('timeline');
   if (!timeline) return;
@@ -156,7 +184,7 @@ const buildTimeline = () => {
     const requestedTag = String(entry.tag || entry.category || (tagRules[entry.type] ? entry.type : '')).trim().toLowerCase();
     entry.tag = tagRules[requestedTag] ? requestedTag : null;
     if (entry.tag) entry.type = tagRules[entry.tag].type;
-    entry.isCompact = Boolean(entry.tag);
+    entry.isCompact = Boolean(entry.tag && tagRules[entry.tag].compact !== false);
     entry.cardMinimumMonths = entry.isCompact ? compactCardMonths : minimumCardMonths;
     entry.minimumVisualMonths = entry.isCompact ? compactCardMonths : Math.max(entry.actualDurationMonths, minimumCardMonths);
   });
@@ -236,6 +264,7 @@ const buildTimeline = () => {
   }).join('') + buildYearTicks(firstMonth, lastMonth, paddingMonths, calendarPosition, calendarMonths);
 
   timeline.querySelectorAll('.timeline-card').forEach((cardElement, index) => cardElement.addEventListener('click', () => openDetailModal(entries[index], cardElement)));
+  renderHireMeNotice(entries);
   setupTimelineFilters(timeline, entries);
   setupTimelineHoverInteractions(timeline);
   requestAnimationFrame(() => {
@@ -281,10 +310,13 @@ const setupTimelineHoverInteractions = (timeline) => {
   let activeItem = null;
   const activate = (item) => {
     if (item === activeItem) return;
-    activeItem?.classList.remove('is-hover-active');
+    timeline.querySelectorAll('.is-hover-active').forEach((active) => {
+      if (active !== item) active.classList.remove('is-hover-active');
+    });
     item?.classList.add('is-hover-active');
     activeItem = item;
   };
+  timeline.addEventListener('timeline-entry-select', (event) => activate(event.detail));
   const scoreCard = (cardElement, x, y) => {
     const box = cardElement.getBoundingClientRect();
     const horizontal = (x - (box.left + box.width / 2)) / Math.max(box.width, 1);
@@ -299,7 +331,19 @@ const setupTimelineHoverInteractions = (timeline) => {
         return box.width && box.height && event.clientX >= box.left && event.clientX <= box.right && event.clientY >= box.top && event.clientY <= box.bottom;
       })
       .map((cardElement) => ({ cardElement, item: cardElement.closest('.timeline-item'), score: scoreCard(cardElement, event.clientX, event.clientY) }));
-    if (!candidates.length) return activate(null);
+    if (!candidates.length) {
+      if (!window.matchMedia('(min-width: 621px)').matches) return activate(null);
+      const rangeHitPadding = 12;
+      const timelineCenter = timeline.getBoundingClientRect().left + timeline.clientWidth / 2;
+      const range = [...timeline.querySelectorAll('.timeline-range')].find((rangeElement) => {
+        const box = rangeElement.getBoundingClientRect();
+        const isWorkRange = rangeElement.classList.contains('work');
+        const hitLeft = isWorkRange ? box.left - rangeHitPadding : timelineCenter;
+        const hitRight = isWorkRange ? timelineCenter : box.right + rangeHitPadding;
+        return box.width && box.height && event.clientX >= hitLeft && event.clientX < hitRight && event.clientY >= box.top && event.clientY <= box.bottom;
+      });
+      return activate(range ? timeline.querySelector(`.timeline-item[data-entry-index="${range.dataset.entryIndex}"]`) : null);
+    }
     const preferred = candidates.reduce((best, candidate) => candidate.score < best.score ? candidate : best);
     const current = candidates.find((candidate) => candidate.item === activeItem);
     // A modest threshold prevents flicker around overlap boundaries while

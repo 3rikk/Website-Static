@@ -166,8 +166,25 @@ body.modal-open{overflow:hidden}.entry-modal[hidden]{display:none}.entry-modal{p
 
 /* Mobile timeline refinements: labels stay on the axis and cards share one inset. */
 .card-more-arrow{display:inline-block;margin-left:.35rem;font-family:'Josefin Sans',sans-serif;font-size:1.15em;font-weight:400;line-height:1}
+.hireme-notice{position:absolute;top:5.25rem;right:3rem;z-index:3;width:min(20rem,calc(100vw - 6rem))}
+.hireme-notice .timeline-card{width:100%;min-height:0;max-height:none;padding:.85rem 2.75rem .9rem 1rem}
+.hireme-notice .card-type{font-size:1.24rem;letter-spacing:.14em;margin-bottom:.6rem}
+.hireme-notice__dismiss{position:absolute;top:.55rem;right:.55rem;width:1.5rem;height:1.5rem;padding:0;border:0;background:transparent;color:#c83f3f;font:1.5rem/1 'Josefin Sans',sans-serif;cursor:pointer}
+.hireme-notice__dismiss:hover,.hireme-notice__dismiss:focus-visible{background:rgba(217,74,74,.12);outline:none}
+.timeline-card--hireme{border-color:rgba(217,74,74,.72);box-shadow:0 8px 25px rgba(217,74,74,.14),0 0 22px rgba(217,74,74,.09)}
+.timeline-card--hireme .card-type{color:#c83f3f}
+.timeline-card--hireme:hover,.timeline-card--hireme:focus-visible,.timeline-card--hireme.is-open,.timeline-item.is-hover-active .timeline-card--hireme{box-shadow:0 15px 32px rgba(217,74,74,.24),0 0 30px rgba(217,74,74,.18)}
+.timeline-range.tag-hireme{background:rgba(217,74,74,.25);border-left-color:rgba(217,74,74,.75)}
+.timeline-range.tag-hireme::before,.timeline-range.tag-hireme::after{background:#d94a4a;box-shadow:0 0 0 3px rgba(217,74,74,.16)}
+.filter-hireme{--filter-colour:#c83f3f}
 @media(max-width:620px){
+	.hireme-notice{top:5rem;right:1.25rem;width:min(20rem,calc(100vw - 2.5rem))}
 	.year-tick{z-index:3}
 	.year-tick span{left:0;right:auto;transform:translateX(-50%)}
 	.timeline-item .timeline-card{padding:.85rem 1rem .9rem}
+}
+@media(prefers-color-scheme:dark){
+	.timeline-card--hireme .card-type{color:#ff8989}
+	.filter-hireme{--filter-colour:#ff8989}
+	.hireme-notice__dismiss{color:#ff8989}
 }

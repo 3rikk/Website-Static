@@ -11,12 +11,14 @@
  *   'März 2020 – Juli 2022' | '2. Juni 2024 – 23. Juni 2024'
  *
  * Add an optional tag (or category) to create a compact secondary entry:
+ *   { type: 'work', tag: 'hireme', ... }
  *   { type: 'work', tag: 'internship', ... }
  *   { type: 'work', tag: 'volunteer', ... }
  *   { type: 'education', tag: 'extracurricular', ... }
- * Shorthand is also supported: type: 'internship', 'volunteer', or
+ * Shorthand is also supported: type: 'hireme', 'internship', 'volunteer', or
  * 'extracurricular'.
- * A tag determines its timeline side and renders the entry narrower.
+ * A tag determines its timeline side and renders the entry narrower, except
+ * `hireme`, which uses the full work-card layout with a red accent.
  *
  * Optional detail fields for the popup:
  *   details: 'Longer text. Separate paragraphs with a blank line.',
@@ -25,6 +27,14 @@
 const cvEntriesByLocale = {
   en: [
   // WORK EXPERIENCE
+  {
+    type: 'hireme',
+    date: 'Oct 2026 — Present',
+    title: 'Potentially Your Restaurant or Bar!',
+    organisation: 'Service Staff (Mini-job)',
+    location: 'Nuremberg, Germany',
+    description: 'I am looking for a new part-time job in the gastronomy industry, ideally in a bar or restaurant in Nuremberg. I have previous experience working as service staff at Chillers Bar & Restaurant and Restaurant Zum Spiesgesellen, where I developed strong customer service skills and the ability to work effectively in a fast-paced environment. I am eager to bring my experience and enthusiasm to a new team and contribute to providing excellent service to guests.\n\nI will be studying at the FAU in Nürnberg and am therefore available to work at peak hours - friday afternoons and evenings, as well as weekends.\n\nContact me at contact@erik-kunz.com or +49 170 490 8586 if you are interested in hiring me!'
+  },
   {
     type: 'work',
     date: 'Nov 2023 — 16. Aug 2026',
@@ -160,6 +170,14 @@ const cvEntriesByLocale = {
   de: [
     // BERUFLICHER WERDEGANG
     {
+      type: 'hireme',
+      date: 'Okt. 2026 – Heute',
+      title: 'Vielleicht Ihre Bar oder Ihr Restaurant!',
+      organisation: 'Servicekraft (Minijob)',
+      location: 'Nürnberg, Deutschland',
+      description: 'Ich suche eine neue Teilzeitstelle in der Gastronomie, idealerweise in einer Bar oder einem Restaurant in Nürnberg. Als Servicekraft im Chillers Bar & Restaurant und im Restaurant Zum Spiesgesellen habe ich bereits Erfahrung gesammelt, meine Fähigkeiten im Kundenservice ausgebaut und gelernt, auch in einem schnelllebigen Umfeld effektiv zu arbeiten. Ich möchte meine Erfahrung und meinen Enthusiasmus in ein neues Team einbringen und dazu beitragen, Gästen einen ausgezeichneten Service zu bieten.\n\nIch werde an der FAU in Nürnberg studieren und bin deshalb zu Stoßzeiten verfügbar – freitagnachmittags und -abends sowie an Wochenenden.\n\nKontaktieren Sie mich unter contact@erik-kunz.com oder +49 170 490 8586, wenn Sie daran interessiert sind, mich einzustellen!'
+    },
+    {
       type: 'work',
       date: 'Nov. 2023 – 16. Aug. 2026',
       title: 'Chillers Bar & Restaurant',
@@ -183,7 +201,7 @@ const cvEntriesByLocale = {
       title: 'English Spoken Café Findikzade & Kadıköy',
       organisation: 'Lehrer',
       location: 'Istanbul, Türkei',
-      description: 'Ich engagierte mich ehrenamtlich als Lehrer in den English Spoken Cafés in Findikzade und Kadıköy in Istanbul. Dort half ich Lernenden durch interaktiven Unterricht und Gesprächsübungen dabei, ihre Englischkenntnisse zu verbessern. Meine Schülerinnen und Schüler hatten unterschiedliche Hintergründe und Altersgruppen, sodass ich meine Lehrmethoden an ihre individuellen Bedürfnisse anpasste. Diese Erfahrung hat meine Kommunikations- und Lehrfähigkeiten weiterentwickelt und mir ermöglicht, einen Beitrag zur lokalen Gemeinschaft zu leisten und mich in sie zu integrieren.'
+      description: 'Ich engagierte mich ehrenamtlich als Lehrer in den English Spoken Cafés in Findikzade und Kadıköy in Istanbul. Dort half ich Lernenden durch interaktiven Unterricht und Gesprächsübungen dabei, ihre Englischkenntnisse zu verbessern.\n\nMeine Schülerinnen und Schüler hatten unterschiedliche Hintergründe und Altersgruppen, daher passte ich meine Lehrmethoden an ihre jeweiligen Bedürfnisse an. Ich plante interaktive, verständliche und ansprechende Unterrichtseinheiten von durchschnittlich zwei Stunden für Gruppen mit zwei bis zehn Personen. Gerade in den Abendstunden, wenn viele Teilnehmende bereits müde waren, war es eine Herausforderung, die gemischten Gruppen motiviert und den Unterricht zugleich lehrreich zu halten. Ich verfolgte einen Ansatz, bei dem die Lernenden den Großteil der Gespräche führten, während ich Fehler korrigierte, Themen lenkte, Fragen stellte und notwendiges Vokabular vermittelte.\n\nNeben dem Unterricht setzte ich mich intensiv mit der lokalen Gemeinschaft und dem Alltag vor Ort auseinander. Diese Erfahrung hat meine Kommunikations- und Lehrfähigkeiten deutlich weiterentwickelt und mich darin bestärkt, mich auf unterschiedliche Menschen und Gesprächssituationen einzustellen.'
     },
     {
       type: 'extracurricular',
