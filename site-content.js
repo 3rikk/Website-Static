@@ -43,7 +43,7 @@ const siteContentByLocale = {
     },
     timeline: {
       workColumn: 'Work, internships & volunteering',
-      educationColumn: 'Education',
+      educationColumn: 'Education & Extracurricular',
       categoryLabel: 'Timeline category',
       filterLabel: 'Filter timeline entries',
       timelineLabel: 'Work and education timeline',
@@ -73,8 +73,7 @@ const siteContentByLocale = {
         heading: 'About Me',
         paragraphs: [
           'I am an economics student specialising in Data Science and IBS from London, currently living and studying in Nuremberg, Germany.',
-          'This website currently serves as a placeholder, though in the future it will become a digital portfolio of my work and projects.',
-          'It also acts as a playground for me to experiment with web design and development, which is a hobby of mine. The page is a static Cloudflare page, deployed with a Cloudflare Worker that auto-builds and updates the site when the GitHub source is updated. I work with Visual Studio Code and tend to live-commit updates as I work, hence the frequent and small commits.',
+          'This website acts as a playground for me to experiment with web design and development, which is a hobby of mine. The page is a static Cloudflare page, deployed with a Cloudflare Worker that auto-builds and updates the site when the GitHub source is updated. I work with Visual Studio Code and tend to live-commit updates as I work, hence the frequent and small commits. It is not based on a template but is custom-coded with the help of OpenAI Codex and Claude Code, as well as my own understanding of web development to refine and evaluate the code. ',
         ],
         paragraphBreaks: [2, 1],
       },
@@ -117,7 +116,7 @@ const siteContentByLocale = {
     },
     timeline: {
       workColumn: 'Berufserfahrung, Praktika & Ehrenamt',
-      educationColumn: 'Bildung',
+      educationColumn: 'Bildung & Außerschulisch',
       categoryLabel: 'Bereich im Zeitstrahl',
       filterLabel: 'Einträge im Zeitstrahl filtern',
       timelineLabel: 'Zeitstrahl zu Berufserfahrung und Bildung',
