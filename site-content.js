@@ -93,6 +93,16 @@ const siteContentByLocale = {
       about: {
         title: 'Erik Kunz — About Me',
         heading: 'About Me',
+        eyebrow: 'A little introduction',
+        intro: 'An economics student with an interest in data, international business and design.',
+        storyLabel: 'The person behind the timeline',
+        factsLabel: 'Profile details',
+        portraitAlt: 'Portrait of Erik Kunz',
+        facts: [
+          { label: 'Based in', value: 'Nuremberg, Germany' },
+          { label: 'Studies', value: 'Economics' },
+          { label: 'Focus', value: 'Data Science & IBS' },
+        ],
         paragraphs: [
           'I am an economics student specialising in Data Science and IBS from London, currently living and studying in Nuremberg, Germany.',
           'This website acts as a playground for me to experiment with web design and development, which is a hobby of mine. The page is a static Cloudflare page, deployed with a Cloudflare Worker that auto-builds and updates the site when the GitHub source is updated. I work with Visual Studio Code and tend to live-commit updates as I work, hence the frequent and small commits. It is not based on a template but is custom-coded with the help of OpenAI Codex and Claude Code, as well as my own understanding of web development to refine and evaluate the code. ',
@@ -107,7 +117,7 @@ const siteContentByLocale = {
         updated: 'Last updated: 11 September 2026',
         sections: [
           { heading: 'Controller', paragraphs: ['Erik Kunz, Äussere Bayreuther Strasse 100, 90491 Nürnberg, Germany. Email: contact@erik-kunz.com.'] },
-          { heading: 'Website delivery', paragraphs: ['When you visit this website, the hosting provider processes technical connection data such as your IP address, browser information and requested pages in server logs. This is necessary to deliver and secure the website.'] },
+          { heading: 'Website delivery', paragraphs: ['When you visit this website, the hosting provider processes technical connection data such as your IP address, browser information and requested pages in server logs. This is necessary to deliver and secure the website.', 'If you dismiss the Hire Me notice, we store a strictly necessary first-party preference cookie for 48 hours so the notice does not reappear during that period.'] },
           { heading: 'Analytics — Microsoft Clarity', paragraphs: ['With your consent, we use Microsoft Clarity to understand how visitors use the website and improve its usability. Clarity records interaction data such as page views, clicks, scrolling, mouse movement, device and browser information, and may create session recordings and heatmaps. It uses first- and third-party cookies and pseudonymous identifiers.', 'The legal basis is your consent. You may refuse or withdraw consent at any time through Cookie settings in the footer. Refusal does not affect use of the website. Microsoft processes Clarity data in Azure. Clarity recordings are generally retained for 30 days; aggregated click and heatmap data, and selected sessions, may be retained for up to nine months.'] },
           { heading: 'Contact by email', paragraphs: ['If you contact us by email, we process the information you provide to respond to your enquiry. We retain it only as long as needed for that purpose or to meet legal obligations.'] },
           { heading: 'Your rights', paragraphs: ['Subject to applicable law, you may request access, correction, deletion, restriction of processing, data portability, or object to processing. Where processing is based on consent, you can withdraw it at any time without affecting processing already carried out. You may also lodge a complaint with a data-protection supervisory authority.'] },
@@ -203,10 +213,19 @@ const siteContentByLocale = {
       about: {
         title: 'Erik Kunz — Über mich',
         heading: 'Über mich',
+        eyebrow: 'Eine kurze Vorstellung',
+        intro: 'Wirtschaftsstudent mit Interesse an Daten, internationalem Business und den Details, die aus einer guten Erfahrung eine besondere machen.',
+        storyLabel: 'Die Person hinter dem Zeitstrahl',
+        factsLabel: 'Profilangaben',
+        portraitAlt: 'Porträt von Erik Kunz',
+        facts: [
+          { label: 'Standort', value: 'Nürnberg, Deutschland' },
+          { label: 'Studium', value: 'Wirtschaftswissenschaften' },
+          { label: 'Schwerpunkt', value: 'Data Science & IBS' },
+        ],
         paragraphs: [
           'Ich bin Wirtschaftswissenschaftsstudent mit den Schwerpunkten Data Science und International Business Studies. Ich stamme aus London und lebe und studiere derzeit in Nürnberg, Deutschland.',
-          'Diese Website dient derzeit als Platzhalter, soll sich künftig jedoch zu einem digitalen Portfolio meiner Arbeiten und Projekte entwickeln.',
-          'Sie ist außerdem ein Spielplatz für meine Experimente mit Webdesign und Webentwicklung – ein Hobby von mir. Die Seite ist eine statische Cloudflare-Seite, die mit einem Cloudflare Worker bereitgestellt wird. Dieser erstellt und aktualisiert die Website automatisch, wenn die GitHub-Quelle aktualisiert wird. Ich arbeite mit Visual Studio Code und committe Änderungen häufig direkt während der Arbeit, daher die vielen kleinen Commits.',
+          'Diese Website ist ein Spielplatz für meine Experimente mit Webdesign und Webentwicklung – einem meiner Hobbys. Sie ist eine statische Cloudflare-Seite, die mit einem Cloudflare Worker bereitgestellt wird. Dieser erstellt und aktualisiert die Website automatisch, wenn die GitHub-Quelle aktualisiert wird. Ich arbeite mit Visual Studio Code und committe Änderungen häufig direkt während der Arbeit, daher die vielen kleinen Commits. Sie basiert nicht auf einer Vorlage, sondern wurde mit Unterstützung von OpenAI Codex und Claude Code sowie meinem eigenen Verständnis von Webentwicklung individuell programmiert, überarbeitet und bewertet.',
         ],
         paragraphBreaks: [2, 1],
       },
@@ -218,7 +237,7 @@ const siteContentByLocale = {
         updated: 'Stand: 11. September 2026',
         sections: [
           { heading: 'Verantwortlicher', paragraphs: ['Erik Kunz, Äussere Bayreuther Strasse 100, 90491 Nürnberg, Deutschland. E-Mail: contact@erik-kunz.com.'] },
-          { heading: 'Bereitstellung der Website', paragraphs: ['Beim Besuch dieser Website verarbeitet der Hosting-Anbieter technische Verbindungsdaten wie IP-Adresse, Browserinformationen und aufgerufene Seiten in Server-Logs. Dies ist für die Bereitstellung und Sicherheit der Website erforderlich.'] },
+          { heading: 'Bereitstellung der Website', paragraphs: ['Beim Besuch dieser Website verarbeitet der Hosting-Anbieter technische Verbindungsdaten wie IP-Adresse, Browserinformationen und aufgerufene Seiten in Server-Logs. Dies ist für die Bereitstellung und Sicherheit der Website erforderlich.', 'Wenn Sie den Hinweis „Hire Me!“ schließen, speichern wir für 48 Stunden ein technisch notwendiges First-Party-Präferenz-Cookie, damit der Hinweis in diesem Zeitraum nicht erneut erscheint.'] },
           { heading: 'Analyse — Microsoft Clarity', paragraphs: ['Mit Ihrer Einwilligung nutzen wir Microsoft Clarity, um zu verstehen, wie Besucher die Website nutzen und ihre Bedienbarkeit zu verbessern. Clarity erfasst Interaktionsdaten wie Seitenaufrufe, Klicks, Scrollen, Mausbewegungen, Geräte- und Browserinformationen und kann Sitzungsaufzeichnungen sowie Heatmaps erstellen. Dabei werden First- und Third-Party-Cookies und pseudonyme Kennungen verwendet.', 'Rechtsgrundlage ist Ihre Einwilligung. Sie können sie jederzeit über Cookie-Einstellungen im Footer verweigern oder widerrufen. Die Nutzung der Website bleibt dadurch uneingeschränkt möglich. Microsoft verarbeitet Clarity-Daten in Azure. Aufzeichnungen werden in der Regel 30 Tage gespeichert; aggregierte Klick- und Heatmap-Daten sowie ausgewählte Sitzungen können bis zu neun Monate gespeichert werden.'] },
           { heading: 'Kontakt per E-Mail', paragraphs: ['Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage. Wir speichern sie nur so lange, wie es dafür oder zur Erfüllung gesetzlicher Pflichten erforderlich ist.'] },
           { heading: 'Ihre Rechte', paragraphs: ['Sie können nach Maßgabe der gesetzlichen Voraussetzungen Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit oder Widerspruch verlangen. Bei einer Verarbeitung auf Grundlage Ihrer Einwilligung können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen. Außerdem können Sie sich bei einer Datenschutzaufsichtsbehörde beschweren.'] },

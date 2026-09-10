@@ -4,18 +4,28 @@
 		<meta charset="utf-8">
 		<meta name="color-scheme" content="light dark">
 		<meta name="viewport" content="width=device-width,initial-scale=1">
+		<link rel="icon" type="image/jpeg" href="images/profile.jpg">
 		<title></title>
 		<meta name="description" content="">
 
 		<link rel="stylesheet" href="style.css">
 	</head>
 	<body data-page="about">
-		<div class="page">
-			<section class="main-content">
-				<h1 id="about-title"></h1>
-				<div id="about-copy"></div>
-			</section>
-
+		<div class="page about-page">
+			<main class="about-content" aria-labelledby="about-title">
+				<header class="about-hero">
+					<div class="about-hero__copy">
+						<p class="eyebrow" id="about-eyebrow"></p>
+						<h1 id="about-title"></h1>
+						<p class="lead" id="about-intro"></p>
+					</div>
+					<figure class="about-portrait"><img id="about-portrait" src="images/profile.jpg" alt=""></figure>
+				</header>
+				<section class="about-details">
+					<aside class="about-facts" id="about-facts" aria-label="Profile details"></aside>
+					<div class="about-story"><p class="eyebrow" id="about-story-label"></p><div id="about-copy"></div></div>
+				</section>
+			</main>
 		</div>
 		<script src="site-content.js" defer></script>
 		<script src="site.js" defer></script>

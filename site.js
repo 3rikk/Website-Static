@@ -91,16 +91,34 @@ const renderHome = () => {
 const renderAbout = () => {
   const copy = siteText.pages.about;
   setText('#about-title', copy.heading);
+  setText('#about-eyebrow', copy.eyebrow);
+  setText('#about-intro', copy.intro);
+  setText('#about-story-label', copy.storyLabel);
+  const portrait = document.querySelector('#about-portrait');
+  if (portrait) {
+    portrait.src = siteText.site.profileImage;
+    portrait.alt = copy.portraitAlt;
+  }
+  const facts = document.querySelector('#about-facts');
+  if (facts) {
+    facts.setAttribute('aria-label', copy.factsLabel);
+    facts.replaceChildren(...copy.facts.map(({ label, value }) => {
+      const item = document.createElement('div');
+      const heading = document.createElement('span');
+      const detail = document.createElement('strong');
+      heading.textContent = label;
+      detail.textContent = value;
+      item.append(heading, detail);
+      return item;
+    }));
+  }
   const body = document.querySelector('#about-copy');
   if (body) {
-    const item = document.createElement('p');
-    item.className = 'lead';
-    copy.paragraphs.forEach((paragraph, index) => {
-      item.append(document.createTextNode(paragraph));
-      const breakCount = copy.paragraphBreaks?.[index] || 0;
-      for (let count = 0; count < breakCount; count += 1) item.append(document.createElement('br'));
-    });
-    body.replaceChildren(item);
+    body.replaceChildren(...copy.paragraphs.map((paragraph) => {
+      const item = document.createElement('p');
+      item.textContent = paragraph;
+      return item;
+    }));
   }
 };
 

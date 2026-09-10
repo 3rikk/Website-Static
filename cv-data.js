@@ -147,11 +147,18 @@ const focusTimelineEntry = (entry) => {
   item.scrollIntoView({ block: 'center', behavior: 'auto' });
 };
 
+const hireMeDismissalCookie = 'hireme-notice-dismissed';
+const hasDismissedHireMeNotice = () => document.cookie.split('; ').some((cookie) => cookie.startsWith(`${hireMeDismissalCookie}=`));
+const dismissHireMeNotice = () => {
+  const secure = window.location.protocol === 'https:' ? '; Secure' : '';
+  document.cookie = `${hireMeDismissalCookie}=1; Max-Age=${48 * 60 * 60}; Path=/; SameSite=Lax${secure}`;
+};
+
 const renderHireMeNotice = (entries) => {
   const home = document.querySelector('.cv-home');
   const hireMeEntry = entries.find((entry) => entry.tag === 'hireme');
   home?.querySelector('.hireme-notice')?.remove();
-  if (!home || !hireMeEntry) return;
+  if (!home || !hireMeEntry || hasDismissedHireMeNotice()) return;
 
   const notice = document.createElement('aside');
   notice.className = 'hireme-notice';
@@ -162,7 +169,10 @@ const renderHireMeNotice = (entries) => {
     focusTimelineEntry(hireMeEntry);
     openDetailModal(hireMeEntry, cardElement);
   });
-  notice.querySelector('.hireme-notice__dismiss').addEventListener('click', () => notice.remove());
+  notice.querySelector('.hireme-notice__dismiss').addEventListener('click', () => {
+    dismissHireMeNotice();
+    notice.remove();
+  });
   home.append(notice);
 };
 
