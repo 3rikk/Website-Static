@@ -134,6 +134,32 @@ const renderProjects = () => {
   }));
 };
 
+const renderPrivacy = () => {
+  const copy = siteText.pages.privacy;
+  setText('#privacy-eyebrow', copy.eyebrow);
+  setText('#privacy-title', copy.heading);
+  setText('#privacy-updated', copy.updated);
+  const content = document.querySelector('#privacy-content');
+  if (!content) return;
+  content.replaceChildren(...copy.sections.map((section) => {
+    const element = document.createElement('section');
+    const heading = document.createElement('h2');
+    heading.textContent = section.heading;
+    element.append(heading, ...section.paragraphs.map((paragraph) => {
+      const text = document.createElement('p');
+      text.textContent = paragraph;
+      return text;
+    }));
+    return element;
+  }));
+  const microsoft = document.createElement('p');
+  const link = createLink('https://privacy.microsoft.com/en-gb/privacystatement', copy.microsoftPrivacyLabel);
+  link.target = '_blank';
+  link.rel = 'noopener noreferrer';
+  microsoft.append(link);
+  content.append(microsoft);
+};
+
 const page = document.body.dataset.page;
 const pageCopy = siteText.pages[page];
 document.documentElement.lang = siteText.language;
@@ -143,3 +169,4 @@ if (description && pageCopy?.description) description.content = pageCopy.descrip
 if (page === 'home') renderHome();
 if (page === 'about') renderAbout();
 if (page === 'projects') renderProjects();
+if (page === 'privacy') renderPrivacy();

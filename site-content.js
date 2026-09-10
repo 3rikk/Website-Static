@@ -33,6 +33,15 @@ const siteContentByLocale = {
     footer: {
       address: 'Impressum: Erik Kunz · Äussere Bayreuther Strasse 100 · 90491 Nürnberg',
       copyright: '© 2026',
+      privacyLabel: 'Privacy',
+      manageCookies: 'Cookie settings',
+    },
+    consent: {
+      heading: 'Your privacy choices',
+      description: 'With your permission, this site uses Microsoft Clarity to understand how visitors use it. You can change your choice at any time.',
+      learnMore: 'Read the privacy policy',
+      reject: 'Reject analytics',
+      accept: 'Accept analytics',
     },
     tags: {
       work: 'Work',
@@ -90,6 +99,21 @@ const siteContentByLocale = {
         ],
         paragraphBreaks: [2, 1],
       },
+      privacy: {
+        title: 'Erik Kunz — Privacy',
+        description: 'Privacy information for erik-kunz.com.',
+        eyebrow: 'Privacy',
+        heading: 'Privacy & cookies',
+        updated: 'Last updated: 11 September 2026',
+        sections: [
+          { heading: 'Controller', paragraphs: ['Erik Kunz, Äussere Bayreuther Strasse 100, 90491 Nürnberg, Germany. Email: contact@erik-kunz.com.'] },
+          { heading: 'Website delivery', paragraphs: ['When you visit this website, the hosting provider processes technical connection data such as your IP address, browser information and requested pages in server logs. This is necessary to deliver and secure the website.'] },
+          { heading: 'Analytics — Microsoft Clarity', paragraphs: ['With your consent, we use Microsoft Clarity to understand how visitors use the website and improve its usability. Clarity records interaction data such as page views, clicks, scrolling, mouse movement, device and browser information, and may create session recordings and heatmaps. It uses first- and third-party cookies and pseudonymous identifiers.', 'The legal basis is your consent. You may refuse or withdraw consent at any time through Cookie settings in the footer. Refusal does not affect use of the website. Microsoft processes Clarity data in Azure. Clarity recordings are generally retained for 30 days; aggregated click and heatmap data, and selected sessions, may be retained for up to nine months.'] },
+          { heading: 'Contact by email', paragraphs: ['If you contact us by email, we process the information you provide to respond to your enquiry. We retain it only as long as needed for that purpose or to meet legal obligations.'] },
+          { heading: 'Your rights', paragraphs: ['Subject to applicable law, you may request access, correction, deletion, restriction of processing, data portability, or object to processing. Where processing is based on consent, you can withdraw it at any time without affecting processing already carried out. You may also lodge a complaint with a data-protection supervisory authority.'] },
+        ],
+        microsoftPrivacyLabel: 'Microsoft Privacy Statement',
+      },
     },
   },
   de: {
@@ -119,6 +143,15 @@ const siteContentByLocale = {
     footer: {
       address: 'Impressum: Erik Kunz · Äussere Bayreuther Strasse 100 · 90491 Nürnberg',
       copyright: '© 2026',
+      privacyLabel: 'Datenschutz',
+      manageCookies: 'Cookie-Einstellungen',
+    },
+    consent: {
+      heading: 'Ihre Datenschutzwahl',
+      description: 'Mit Ihrer Einwilligung verwendet diese Website Microsoft Clarity, um zu verstehen, wie Besucher sie nutzen. Sie können Ihre Wahl jederzeit ändern.',
+      learnMore: 'Datenschutzerklärung lesen',
+      reject: 'Analyse ablehnen',
+      accept: 'Analyse akzeptieren',
     },
     tags: {
       work: 'Berufserfahrung',
@@ -176,6 +209,21 @@ const siteContentByLocale = {
           'Sie ist außerdem ein Spielplatz für meine Experimente mit Webdesign und Webentwicklung – ein Hobby von mir. Die Seite ist eine statische Cloudflare-Seite, die mit einem Cloudflare Worker bereitgestellt wird. Dieser erstellt und aktualisiert die Website automatisch, wenn die GitHub-Quelle aktualisiert wird. Ich arbeite mit Visual Studio Code und committe Änderungen häufig direkt während der Arbeit, daher die vielen kleinen Commits.',
         ],
         paragraphBreaks: [2, 1],
+      },
+      privacy: {
+        title: 'Erik Kunz — Datenschutz',
+        description: 'Datenschutzhinweise für erik-kunz.com.',
+        eyebrow: 'Datenschutz',
+        heading: 'Datenschutz & Cookies',
+        updated: 'Stand: 11. September 2026',
+        sections: [
+          { heading: 'Verantwortlicher', paragraphs: ['Erik Kunz, Äussere Bayreuther Strasse 100, 90491 Nürnberg, Deutschland. E-Mail: contact@erik-kunz.com.'] },
+          { heading: 'Bereitstellung der Website', paragraphs: ['Beim Besuch dieser Website verarbeitet der Hosting-Anbieter technische Verbindungsdaten wie IP-Adresse, Browserinformationen und aufgerufene Seiten in Server-Logs. Dies ist für die Bereitstellung und Sicherheit der Website erforderlich.'] },
+          { heading: 'Analyse — Microsoft Clarity', paragraphs: ['Mit Ihrer Einwilligung nutzen wir Microsoft Clarity, um zu verstehen, wie Besucher die Website nutzen und ihre Bedienbarkeit zu verbessern. Clarity erfasst Interaktionsdaten wie Seitenaufrufe, Klicks, Scrollen, Mausbewegungen, Geräte- und Browserinformationen und kann Sitzungsaufzeichnungen sowie Heatmaps erstellen. Dabei werden First- und Third-Party-Cookies und pseudonyme Kennungen verwendet.', 'Rechtsgrundlage ist Ihre Einwilligung. Sie können sie jederzeit über Cookie-Einstellungen im Footer verweigern oder widerrufen. Die Nutzung der Website bleibt dadurch uneingeschränkt möglich. Microsoft verarbeitet Clarity-Daten in Azure. Aufzeichnungen werden in der Regel 30 Tage gespeichert; aggregierte Klick- und Heatmap-Daten sowie ausgewählte Sitzungen können bis zu neun Monate gespeichert werden.'] },
+          { heading: 'Kontakt per E-Mail', paragraphs: ['Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre Angaben zur Bearbeitung Ihrer Anfrage. Wir speichern sie nur so lange, wie es dafür oder zur Erfüllung gesetzlicher Pflichten erforderlich ist.'] },
+          { heading: 'Ihre Rechte', paragraphs: ['Sie können nach Maßgabe der gesetzlichen Voraussetzungen Auskunft, Berichtigung, Löschung, Einschränkung der Verarbeitung, Datenübertragbarkeit oder Widerspruch verlangen. Bei einer Verarbeitung auf Grundlage Ihrer Einwilligung können Sie diese jederzeit mit Wirkung für die Zukunft widerrufen. Außerdem können Sie sich bei einer Datenschutzaufsichtsbehörde beschweren.'] },
+        ],
+        microsoftPrivacyLabel: 'Microsoft-Datenschutzerklärung',
       },
     },
   },
