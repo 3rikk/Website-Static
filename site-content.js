@@ -229,6 +229,10 @@ const siteContentByLocale = {
   },
 };
 
-const requestedSiteLocale = new URLSearchParams(window.location.search).get('lang') || document.documentElement.lang || 'en';
-const siteLocale = siteContentByLocale[requestedSiteLocale] ? requestedSiteLocale : 'en';
+const explicitSiteLocale = new URLSearchParams(window.location.search).get('lang');
+const browserLanguages = navigator.languages?.length ? navigator.languages : [navigator.language];
+const browserSiteLocale = browserLanguages
+  .map((language) => String(language || '').toLowerCase().split('-')[0])
+  .find((language) => siteContentByLocale[language]);
+const siteLocale = siteContentByLocale[explicitSiteLocale] ? explicitSiteLocale : (browserSiteLocale || 'en');
 const siteText = siteContentByLocale[siteLocale];
