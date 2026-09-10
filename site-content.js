@@ -17,7 +17,7 @@ const siteContentByLocale = {
     navigation: [
       { label: 'Home', href: 'index.html' },
       { label: 'Interactive CV', href: 'index.html#cv' },
-      { label: 'CV as PDF', href: 'lebenslauf.pdf' },
+      { label: 'Projects', href: 'projects.html' },
       { label: 'About Me', href: 'about.html' },
     ],
     navigationLabel: 'Primary navigation',
@@ -54,7 +54,6 @@ const siteContentByLocale = {
       dismissHireMe: 'Dismiss Hire Me notice',
       start: 'Start',
       end: 'End',
-      editNote: 'Entries are maintained in',
     },
     pages: {
       home: {
@@ -69,6 +68,18 @@ const siteContentByLocale = {
         cvTitle: 'Work & education,',
         cvTitleEmphasis: 'side by side.',
         cvDescription: 'Follow the timeline or select an entry to reveal more.',
+        traditionalCvPrefix: 'Prefer a traditional CV? Request one by email: ',
+      },
+      projects: {
+        title: 'Selected projects',
+        description: 'A growing collection of my work.',
+        eyebrow: 'Portfolio',
+        viewProject: 'View project →',
+        tiles: [
+          { title: 'Water Distribution Failures and Civilian Impact: The Case of Lebanon', description: "Read my paper on the causes and effects of Lebanon's failing water distribution amidst war, corruption and climate change.", image: 'images/projects/seminararbeit.png', alt: 'Cover image for seminar paper on water distribution in Lebanon', href: 'files/lebanon-water-crisis.pdf' },
+          { title: 'This Portfolio Website', description: 'View the source code of this actively developed website, which I consider a hobby project, on GitHub.', image: 'images/projects/website-code.png', alt: 'Source code for this portfolio website', href: 'https://github.com/3rikk/Website-Static/' },
+          { title: 'Web development project', description: 'Replace this with the challenge, your contribution and the outcome of a digital project.', image: 'images/projects/web-development.png', alt: 'Abstract web-development workspace', href: '#', hidden: true },
+        ],
       },
       about: {
         title: 'Erik Kunz — About Me',
@@ -92,7 +103,7 @@ const siteContentByLocale = {
     navigation: [
       { label: 'Startseite', href: 'index.html' },
       { label: 'Interaktiver Lebenslauf', href: 'index.html#cv' },
-      { label: 'Lebenslauf als PDF', href: 'lebenslauf.pdf' },
+      { label: 'Projekte', href: 'projects.html' },
       { label: 'Über mich', href: 'about.html' },
     ],
     navigationLabel: 'Hauptnavigation',
@@ -129,7 +140,6 @@ const siteContentByLocale = {
       dismissHireMe: 'Hinweis „Hire Me!“ schließen',
       start: 'Beginn',
       end: 'Ende',
-      editNote: 'Einträge werden gepflegt in',
     },
     pages: {
       home: {
@@ -144,6 +154,18 @@ const siteContentByLocale = {
         cvTitle: 'Beruf & Bildung,',
         cvTitleEmphasis: 'nebeneinander.',
         cvDescription: 'Folgen Sie dem Zeitstrahl oder wählen Sie einen Eintrag für weitere Informationen.',
+        traditionalCvPrefix: 'Sie möchten einen klassischen Lebenslauf? Fordern Sie ihn per E-Mail an: ',
+      },
+      projects: {
+        title: 'Ausgewählte Projekte',
+        description: 'Eine wachsende Sammlung von Arbeiten.',
+        eyebrow: 'Portfolio',
+        viewProject: 'Projekt ansehen →',
+        tiles: [
+          { title: 'Water Distribution Failures and Civilian Impact: The Case of Lebanon', description: 'Lesen Sie meine Seminararbeit über die Ursachen und Auswirkungen der zusammenbrechenden Wasserversorgung im Libanon inmitten von Krieg, Korruption und Klimawandel. Die Arbeit ist nur auf Englisch verfügbar.', image: 'images/projects/seminararbeit.png', alt: 'Titelbild der Seminararbeit zur Wasserversorgung im Libanon', href: 'files/lebanon-water-crisis.pdf' },
+          { title: 'Diese Portfolio-Website', description: 'Sehen Sie sich den Quellcode dieser aktiv entwickelten Website, die für mich ein Hobbyprojekt ist, auf GitHub an.', image: 'images/projects/website-code.png', alt: 'Quellcode dieser Portfolio-Website', href: 'https://github.com/3rikk/Website-Static/' },
+          { title: 'Webentwicklungsprojekt', description: 'Ersetzen Sie dies durch Herausforderung, Beitrag und Ergebnis eines digitalen Projekts.', image: 'images/projects/web-development.png', alt: 'Abstrakter Arbeitsplatz zur Webentwicklung', href: '#', hidden: true },
+        ],
       },
       about: {
         title: 'Erik Kunz — Über mich',

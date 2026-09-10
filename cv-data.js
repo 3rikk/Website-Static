@@ -175,6 +175,13 @@ const buildTimeline = () => {
   const paddingMonths = 3;
   const minimumCardMonths = 15;
   const compactCardMonths = 10.5;
+  const timelineMonthSize = Number.parseFloat(getComputedStyle(timeline).getPropertyValue('--month-size')) || 18;
+  const rootFontSize = Number.parseFloat(getComputedStyle(document.documentElement).fontSize) || 16;
+  const titleLineMonths = 1.05 * 1.35 * rootFontSize / timelineMonthSize;
+  // Entries through 2022 retain only the height needed to read them, less
+  // one title line, so recent experience receives the visual emphasis.
+  const condensedHistoryCutoff = monthIndex(2023, 0);
+  const condensedHistoryMinimumMonths = minimumCardMonths - titleLineMonths;
 
   const entryGapMonths = 2;
   const calendarMonths = lastMonth - firstMonth + paddingMonths * 2;
@@ -185,8 +192,9 @@ const buildTimeline = () => {
     entry.tag = tagRules[requestedTag] ? requestedTag : null;
     if (entry.tag) entry.type = tagRules[entry.tag].type;
     entry.isCompact = Boolean(entry.tag && tagRules[entry.tag].compact !== false);
+    entry.isCondensedHistory = entry.start < condensedHistoryCutoff;
     entry.cardMinimumMonths = entry.isCompact ? compactCardMonths : minimumCardMonths;
-    entry.minimumVisualMonths = entry.isCompact ? compactCardMonths : Math.max(entry.actualDurationMonths, minimumCardMonths);
+    entry.minimumVisualMonths = entry.isCompact ? compactCardMonths : (entry.isCondensedHistory ? condensedHistoryMinimumMonths : Math.max(entry.actualDurationMonths, minimumCardMonths));
   });
 
   // Build one stretchable calendar shared by both columns. Each ordinary
@@ -215,14 +223,23 @@ const buildTimeline = () => {
       const previous = ordered[index - 1];
       const overlapMonths = Math.min(previous.end, entry.end) - Math.max(previous.start, entry.start);
       if (overlapMonths <= 1 && !previous.isOverlay && !entry.isOverlay && entry.dateStartMonth > previous.dateStartMonth) {
-        spacingConstraints[entry.dateStartMonth].push({ from: previous.dateStartMonth, size: previous.minimumVisualMonths + entryGapMonths });
+        const gapMonths = previous.isCondensedHistory && entry.isCondensedHistory ? 0 : entryGapMonths;
+        spacingConstraints[entry.dateStartMonth].push({ from: previous.dateStartMonth, size: previous.minimumVisualMonths + gapMonths });
       }
     });
   });
 
-  const calendarPosition = Array.from({ length: calendarMonths + 1 }, (_, index) => index);
+  const calendarPosition = Array.from({ length: calendarMonths + 1 }, () => 0);
   for (let month = 1; month <= calendarMonths; month += 1) {
-    calendarPosition[month] = Math.max(calendarPosition[month], calendarPosition[month - 1] + 1);
+    const calendarMonth = lastMonth + paddingMonths - month;
+    // Each historical entry scales its calendar months into its minimum
+    // readable range. This retains all month and year markers without
+    // restoring the original empty calendar space.
+    const historicalScale = entries
+      .filter((entry) => entry.isCondensedHistory && calendarMonth >= entry.start && calendarMonth < entry.end)
+      .map((entry) => entry.minimumVisualMonths / entry.actualDurationMonths);
+    const monthSize = calendarMonth < condensedHistoryCutoff ? Math.max(0, ...historicalScale) : 1;
+    calendarPosition[month] = Math.max(calendarPosition[month], calendarPosition[month - 1] + monthSize);
     spacingConstraints[month].forEach((constraint) => {
       calendarPosition[month] = Math.max(calendarPosition[month], calendarPosition[constraint.from] + constraint.size);
     });
@@ -239,7 +256,8 @@ const buildTimeline = () => {
     entry.dateEndPosition = lastMonth + paddingMonths - entry.startPosition;
     entry.rangeStartMonth = calendarOffset(entry.dateStartPosition);
     entry.visualStartMonth = entry.rangeStartMonth;
-    entry.rangeVisualDurationMonths = calendarOffset(entry.dateEndPosition) - entry.rangeStartMonth;
+    const mappedDuration = calendarOffset(entry.dateEndPosition) - entry.rangeStartMonth;
+    entry.rangeVisualDurationMonths = entry.isCondensedHistory ? Math.max(mappedDuration, entry.minimumVisualMonths) : mappedDuration;
     entry.visualDurationMonths = entry.isCompact ? entry.cardMinimumMonths : Math.max(entry.rangeVisualDurationMonths, entry.minimumVisualMonths);
     entry.markerDistance = 0;
   });

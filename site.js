@@ -82,11 +82,9 @@ const renderHome = () => {
       filters.append(button);
     });
   }
-  const note = document.querySelector('#cv-edit-note');
-  if (note) {
-    const file = document.createElement('code');
-    file.textContent = siteText.site.cvEntriesFile;
-    note.replaceChildren(document.createTextNode(`${siteText.timeline.editNote} `), file, document.createTextNode('.'));
+  const traditionalCvNote = document.querySelector('#traditional-cv-note');
+  if (traditionalCvNote) {
+    traditionalCvNote.replaceChildren(document.createTextNode(copy.traditionalCvPrefix), createLink(`mailto:${siteText.site.email}`, siteText.site.email));
   }
 };
 
@@ -106,6 +104,36 @@ const renderAbout = () => {
   }
 };
 
+const renderProjects = () => {
+  const copy = siteText.pages.projects;
+  setText('#projects-eyebrow', copy.eyebrow);
+  setText('#projects-title', copy.title);
+  setText('#projects-description', copy.description);
+  const grid = document.querySelector('#project-grid');
+  if (!grid) return;
+  grid.replaceChildren(...copy.tiles.filter((project) => !project.hidden).map((project) => {
+    const tile = document.createElement('a');
+    tile.className = 'project-tile';
+    tile.href = project.href || '#';
+    const image = document.createElement('img');
+    image.className = 'project-tile__image';
+    image.src = project.image;
+    image.alt = project.alt;
+    const content = document.createElement('span');
+    content.className = 'project-tile__content';
+    const title = document.createElement('strong');
+    title.textContent = project.title;
+    const description = document.createElement('span');
+    description.textContent = project.description;
+    const prompt = document.createElement('span');
+    prompt.className = 'project-tile__prompt';
+    prompt.textContent = copy.viewProject;
+    content.append(title, description, prompt);
+    tile.append(image, content);
+    return tile;
+  }));
+};
+
 const page = document.body.dataset.page;
 const pageCopy = siteText.pages[page];
 document.documentElement.lang = siteText.language;
@@ -114,3 +142,4 @@ const description = document.querySelector('meta[name="description"]');
 if (description && pageCopy?.description) description.content = pageCopy.description;
 if (page === 'home') renderHome();
 if (page === 'about') renderAbout();
+if (page === 'projects') renderProjects();
