@@ -66,7 +66,7 @@ const siteContentByLocale = {
     },
     pages: {
       home: {
-        title: 'Erik Kunz — CV',
+        title: 'Erik Kunz - Portfolio',
         description: 'Erik Kunz — work and education timeline.',
         eyebrow: 'Curriculum vitae',
         intro: 'Welcome to my interactive portfolio. This page serves to visualise my experience and education to give you a thorough impression of my background and skills.',
@@ -186,7 +186,7 @@ const siteContentByLocale = {
     },
     pages: {
       home: {
-        title: 'Erik Kunz — Lebenslauf',
+        title: 'Erik Kunz — Portfolio',
         description: 'Erik Kunz — Zeitstrahl zu Berufserfahrung und Bildung.',
         eyebrow: 'Lebenslauf',
         intro: 'Willkommen in meinem interaktiven Portfolio. Diese Seite veranschaulicht meine Erfahrung und Ausbildung und vermittelt einen umfassenden Eindruck meines Hintergrunds und meiner Fähigkeiten.',
