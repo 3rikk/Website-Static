@@ -6,10 +6,10 @@
     "enabled": true
   },
   "assets": {
-		"directory": ".",
-		"not_found_handling": "404-page",
-		"html_handling": "auto-trailing-slash"
-	}
+    "directory": ".",
+    "not_found_handling": "404-page",
+    "html_handling": "auto-trailing-slash"
+  },
   "compatibility_flags": [
     "nodejs_compat"
   ]
