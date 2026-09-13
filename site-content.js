@@ -32,7 +32,7 @@ const siteContentByLocale = {
     },
     footer: {
       address: 'Impressum: Erik Kunz · Äussere Bayreuther Strasse 100 · 90491 Nürnberg',
-      message: 'Free Palestine and Lebanon from Israeli Agression',
+      message: '',
       copyright: '© 2026',
       privacyLabel: 'Privacy',
       manageCookies: 'Cookie settings',
@@ -154,7 +154,7 @@ const siteContentByLocale = {
     },
     footer: {
       address: 'Impressum: Erik Kunz · Äussere Bayreuther Strasse 100 · 90491 Nürnberg',
-      message: 'Free Palestine and Lebanon from Israeli Agression',
+      message: '',
       copyright: '© 2026',
       privacyLabel: 'Datenschutz',
       manageCookies: 'Cookie-Einstellungen',
