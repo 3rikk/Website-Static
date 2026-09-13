@@ -4,7 +4,7 @@ const injectFooter = () => {
 
   const footer = document.createElement('footer');
   footer.className = 'footer site-footer';
-  [siteText.footer.address, siteText.footer.copyright].forEach((text) => {
+  [siteText.footer.address, siteText.footer.message, siteText.footer.copyright].forEach((text) => {
     const item = document.createElement('div');
     item.textContent = text;
     footer.append(item);

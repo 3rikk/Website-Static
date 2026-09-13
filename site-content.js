@@ -32,6 +32,7 @@ const siteContentByLocale = {
     },
     footer: {
       address: 'Impressum: Erik Kunz · Äussere Bayreuther Strasse 100 · 90491 Nürnberg',
+      message: 'Free Palestine and Lebanon from Israeli Agression',
       copyright: '© 2026',
       privacyLabel: 'Privacy',
       manageCookies: 'Cookie settings',
@@ -85,7 +86,7 @@ const siteContentByLocale = {
         eyebrow: 'Portfolio',
         viewProject: 'View project →',
         tiles: [
-          { title: 'Portpass - Passport and Visa Management', description: 'This side project of mine is an open source website which lets you graphically view the power of your passports, visas, residency permits and more in a sleek, modern UI.', image: 'images/projects/portpass-banner.png', alt: 'Portpass banner', href: 'https://portpass.erik-kunz.com' },
+          { title: 'portpass.world - Passport and Visa Management', description: 'This side project of mine is an open source website which lets you graphically view the power of your passports, visas, residency permits and more in a sleek, modern UI.', image: 'https://portpass.world/assets/portpass-banner.png', alt: 'Portpass banner', href: 'https://portpass.world' },
           { title: 'Water Distribution Failures and Civilian Impact: The Case of Lebanon', description: "Read my paper on the causes and effects of Lebanon's failing water distribution amidst war, corruption and climate change.", image: 'images/projects/seminararbeit.png', alt: 'Cover image for seminar paper on water distribution in Lebanon', href: 'files/lebanon-water-crisis.pdf' },
           { title: 'This Portfolio Website', description: 'View the source code of this actively developed website, which I consider a hobby project, on GitHub.', image: 'images/projects/website-code.png', alt: 'Source code for this portfolio website', href: 'https://github.com/3rikk/Website-Static/' },
           { title: 'Web development project', description: 'Replace this with the challenge, your contribution and the outcome of a digital project.', image: 'images/projects/web-development.png', alt: 'Abstract web-development workspace', href: '#', hidden: true },
@@ -153,6 +154,7 @@ const siteContentByLocale = {
     },
     footer: {
       address: 'Impressum: Erik Kunz · Äussere Bayreuther Strasse 100 · 90491 Nürnberg',
+      message: 'Free Palestine and Lebanon from Israeli Agression',
       copyright: '© 2026',
       privacyLabel: 'Datenschutz',
       manageCookies: 'Cookie-Einstellungen',
