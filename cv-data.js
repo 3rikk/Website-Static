@@ -153,7 +153,7 @@ const dismissHireMeNotice = () => {
   const secure = window.location.protocol === 'https:' ? '; Secure' : '';
   document.cookie = `${hireMeDismissalCookie}=1; Max-Age=${48 * 60 * 60}; Path=/; SameSite=Lax${secure}`;
 };
-
+/*
 const renderHireMeNotice = (entries) => {
   const home = document.querySelector('.cv-home');
   const hireMeEntry = entries.find((entry) => entry.tag === 'hireme');
@@ -175,7 +175,7 @@ const renderHireMeNotice = (entries) => {
   });
   home.append(notice);
 };
-
+*/
 const buildTimeline = () => {
   const timeline = document.getElementById('timeline');
   if (!timeline) return;
