@@ -154,12 +154,12 @@ const dismissHireMeNotice = () => {
   document.cookie = `${hireMeDismissalCookie}=1; Max-Age=${48 * 60 * 60}; Path=/; SameSite=Lax${secure}`;
 };
 
-const renderHireMeNotice = (entries) => {
+/* const renderHireMeNotice = (entries) => {
   const home = document.querySelector('.cv-home');
   const hireMeEntry = entries.find((entry) => entry.tag === 'hireme');
   home?.querySelector('.hireme-notice')?.remove();
   if (!home || !hireMeEntry || hasDismissedHireMeNotice()) return;
-
+*/
   const notice = document.createElement('aside');
   notice.className = 'hireme-notice';
   notice.setAttribute('aria-label', tagLabel(hireMeEntry.tag));
